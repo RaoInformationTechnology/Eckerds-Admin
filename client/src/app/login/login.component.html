@@ -1,0 +1,74 @@
+<!-- <div class="container"> 
+  <div class="col-md-6 offset-3">
+  	<p></p>
+    <p class="msg_error">{{ errmsg }}</p>
+    <p class="msg_success">{{ msg }}</p>
+    <h3>Login:</h3>
+      <form>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" class="form-control" name="email" [(ngModel)]="user.email" id="email">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="user.password" id="password">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="login(user)">Login</button>
+      </form>
+    </div>
+  </div> -->
+
+
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="../assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+
+
+  <body class="">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Log In</h4>
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Email</label>
+                        <input type="text" class="form-control" name="email" [(ngModel)]="user.email" id="email">
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Password</label>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="user.password" id="password" >
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <p class="msg_error" style="text-align: center;">{{ errmsg }}</p>
+                      <p class="msg_success" style="text-align: center;">{{ msg }}</p>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary pull-right" (click)="login(user)">Log In</button>
+                  <div class="clearfix"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+          </div>
+        </div>
+      </div>

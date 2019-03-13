@@ -1,0 +1,130 @@
+<div class="wrapper ">
+	<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+		<div class="logo">
+			<a href="http://www.creative-tim.com" class="simple-text logo-normal">
+				Eckerds Pharmacy
+			</a>
+		</div>
+		<div class="sidebar-wrapper">
+			<div class="logo">
+				<a href="https://myeckerds.com/#!/" class="simple-text logo-normal">
+					<img src="../assets/eckerdsLogo.png">
+					<p>Eckerds Corporation</p>
+				</a>
+			</div>
+			<ul class="nav">
+				<li class="nav-item " *ngIf="auth.isLoggednIn()">
+					<a class="nav-link" routerLink="/dashboard">
+						<i class="material-icons">dashboard</i>
+						<p>Dashboard</p>
+					</a>
+				</li>
+				<li class="nav-item ">
+					<a class="nav-link" routerLink="/allRecords" *ngIf="auth.isLoggednIn()">
+						<i class="material-icons">info</i>
+						<p>All Records</p>
+					</a>
+				</li>
+				<li class="nav-item ">
+					<a class="nav-link" routerLink="/refill" *ngIf="auth.isLoggednIn()">
+						<i class="material-icons">rotate_left</i>
+						<p>Refill Prescription Request</p>
+					</a>
+				</li>
+				<li class="nav-item ">
+					<a class="nav-link" routerLink="/transfer" *ngIf="auth.isLoggednIn()">
+						<i class="material-icons">import_export</i>
+						<p>Transfer Request</p>
+					</a>
+				</li>
+				<li class="nav-item ">
+					<a class="nav-link" routerLink="/price" *ngIf="auth.isLoggednIn()">
+						<i class="fas fa-money-check-alt" style="font-size: 17px;"></i>
+						<p>Price Check Request</p>
+					</a>
+				</li>
+				<li class="nav-item ">
+					<a class="nav-link" href="" (click)="Logout()" *ngIf="auth.isLoggednIn()">
+						<i class="fas fa-sign-out-alt" style="font-size: 17px;"></i>
+						<p>Log out</p>
+					</a>
+				</li>
+				<li class="nav-item ">
+					<a class="nav-link" href=""  *ngIf="!auth.isLoggednIn()" routerLink="/login">
+						<i class="fas fa-sign-out-alt"></i>
+						<p>Log In</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="main-panel">
+		<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+			<div class="container-fluid">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="navbar-toggler-icon icon-bar"></span>
+					<span class="navbar-toggler-icon icon-bar"></span>
+					<span class="navbar-toggler-icon icon-bar"></span>
+				</button>   
+			</div>
+		</nav>
+		<div class="content">
+			<router-outlet></router-outlet>
+		</div>
+		<footer class="footer">
+			<div class="container-fluid">
+				<nav class="float-left">
+					<ul>
+						<li>
+							<a href="https://myeckerds.com/#!/about">
+								About Us
+							</a>
+						</li>
+						<li>
+							<a href="https://myeckerds.com/#!/home/locations">
+								Locations
+							</a>
+						</li>
+						<li>
+							<a href="https://myeckerds.com/#!/contact">
+								Contact Us
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="copyright float-right">
+					&copy;
+					<script>
+						document.write(new Date().getFullYear())
+					</script>Made with <i class="material-icons" style="color: red">favorite</i> by
+					<a href="https://raoinformationtechnology.com/" target="_blank">Rao Infotech</a>.
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+
+<!--   <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="../assets/js/plugins/moment.min.js"></script>
+  <script src="../assets/js/plugins/sweetalert2.js"></script>
+  <script src="../assets/js/plugins/jquery.validate.min.js"></script>
+  <script src="../assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+  <script src="../assets/js/plugins/bootstrap-selectpicker.js"></script>
+  <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+  <script src="../assets/js/plugins/jquery.dataTables.min.js"></script>
+  <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
+  <script src="../assets/js/plugins/jasny-bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/fullcalendar.min.js"></script>
+  <script src="../assets/js/plugins/jquery-jvectormap.js"></script>
+  <script src="../assets/js/plugins/nouislider.min.js"></script>
+  <script src="../https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <script src="../assets/js/plugins/arrive.min.js"></script>
+  <script src="../assets/js/plugins/chartist.min.js"></script>
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <script src="../assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+  <script src="../assets/demo/demo.js"></script> -->
+

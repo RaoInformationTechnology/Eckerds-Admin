@@ -1,0 +1,8 @@
+.msg_success{
+	background-color: lightgreen;
+}
+
+.msg_error{
+	background-color: red;
+	color: white;
+}
