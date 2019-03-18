@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 13, 2019 at 07:34 PM
+-- Generation Time: Mar 18, 2019 at 06:16 PM
 -- Server version: 5.7.25-0ubuntu0.18.04.2
 -- PHP Version: 5.6.40-1+ubuntu18.04.1+deb.sury.org+2+will+reach+end+of+life+in+april+2019
 
@@ -48,7 +48,8 @@ INSERT INTO `priceCheck` (`pc_id`, `location`, `name`, `phone`, `email`, `medici
 (14, 'Apollo Beach', 'Mike', '+1-433-232-2313', 'c@gmail.com', 'Lyrica', 'Whta\'s the Price?', '2019-03-11 15:45:24'),
 (15, 'New Port Richey', 'Russel', '+1-433-232-2313', 'c@gmail.com', 'Lyrica', 'Whta\'s the Price?', '2019-03-11 15:45:09'),
 (16, 'Lack  Jackson', 'Chrales', '+1-433-232-2313', 'c@gmail.com', 'Lyrica', 'Whta\'s the Price?', '2019-03-11 15:45:24'),
-(17, 'West Bradenton', 'Mike', '+1-433-232-2313', 'c@gmail.com', 'Lyrica', 'Whta\'s the Price?', '2019-03-11 15:45:24');
+(17, 'West Bradenton', 'Mike', '+1-433-232-2313', 'c@gmail.com', 'Lyrica', 'Whta\'s the Price?', '2019-03-11 15:45:24'),
+(18, 'Wauchula', 'Jason', '+1-433-232-4544', 'jason@gmail.com', 'Paracetamol', 'Hey, i need to know about the price of this medicine.', '2019-03-11 15:45:24');
 
 -- --------------------------------------------------------
 
@@ -114,7 +115,7 @@ INSERT INTO `transferPrescription` (`tp_id`, `location`, `name`, `phone`, `email
 (8, 'Bradenton', 'Andrea', '+1-202-423-2342', 'andrea@gmail.com', 'Charles', '+1-202-555-3432', '434444244243', '2019-03-26', '12:03 AM', 'Can you transfer my prescription?', '2019-03-08 18:11:48'),
 (9, 'Apollo Beach', 'Edwin', '+1-202-423-2342', 'edwin@gmail.com', 'Charles', '+1-202-555-3432', '434444244243', '2019-03-26', '12:03 AM', 'Can you transfer my prescription?', '2019-03-08 18:11:48'),
 (10, 'Lake Jackson', 'John', '+1-222-323-3433', 'john@gmail.com', 'Charles', '+1-202-555-3432', '434444244243', '2019-03-26', '12:03 AM', 'Can you transfer my prescription?', '2019-03-08 18:11:48'),
-(11, 'Palmetto', 'Charles', '+1-202-423-2342', 'charles@g.c', 'Charles', '+1-202-555-3432', '434444244243', '2019-03-26', '12:03 AM', 'Can you transfer my prescription?', '2019-03-08 18:11:48'),
+(11, 'Wauchula', 'Charles', '+1-202-423-2342', 'charles@g.c', 'Charles', '+1-202-555-3432', '434444244243', '2019-03-26', '12:03 AM', 'Can you transfer my prescription?', '2019-03-08 18:11:48'),
 (12, 'Bradenton', 'Andrea', '+1-202-423-2342', 'andrea@gmail.com', 'Charles', '+1-202-555-3432', '434444244243', '2019-03-26', '12:03 AM', 'Can you transfer my prescription?', '2019-03-08 18:11:48'),
 (13, 'Apollo Beach', 'Edwin', '+1-202-423-2342', 'edwin@gmail.com', 'Charles', '+1-202-555-3432', '434444244243', '2019-03-26', '12:03 AM', 'Can you transfer my prescription?', '2019-03-08 18:11:48');
 
@@ -175,7 +176,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `priceCheck`
 --
 ALTER TABLE `priceCheck`
-  MODIFY `pc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `pc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `refillPrescription`
 --
