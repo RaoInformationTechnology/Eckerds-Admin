@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserPriceCheck} from './priceCheck';
 import {PriceService} from '../price.service';
-import {Router} from '@angular/router';
+import {Router,Params} from '@angular/router';
 
 
 @Component({

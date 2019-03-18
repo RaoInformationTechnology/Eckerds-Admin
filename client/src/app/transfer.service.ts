@@ -41,4 +41,21 @@ export class TransferService {
     	}),
     	catchError(this.handleError));
 	}
+
+	filterTransferByLocation(filteredLocation){
+		console.log(filteredLocation);
+		return this.http.post(`${this.baseUrl}/transferFilter.php` , {'location': filteredLocation}).pipe(
+			map((res) => {
+				console.log(res);
+				return res;
+			}));
+	}
+
+	getUserTransferRequest(id){
+		return this.http.post(`${this.baseUrl}/selectOneTransfer.php`,{'id':id}).pipe(
+			map((res)=>{
+				return res;
+				console.log(res);
+			}));
+	}
 }

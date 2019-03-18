@@ -14,6 +14,10 @@ import { AuthGuard } from './auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { AllRecordsComponent } from './all-records/all-records.component';
+import { FilterByLocationComponent } from './filter-by-location/filter-by-location.component';
+import { ShowDetailTransferComponent } from './show-detail-transfer/show-detail-transfer.component';
+import { ShowDetailRefillComponent } from './show-detail-refill/show-detail-refill.component';
+import { ShowDetailPriceComponent } from './show-detail-price/show-detail-price.component';
 
 
 
@@ -26,6 +30,10 @@ import { AllRecordsComponent } from './all-records/all-records.component';
   LoginComponent,
   DashboardComponent,
   AllRecordsComponent,
+  FilterByLocationComponent,
+  ShowDetailTransferComponent,
+  ShowDetailRefillComponent,
+  ShowDetailPriceComponent,
 
   ],
   imports: [

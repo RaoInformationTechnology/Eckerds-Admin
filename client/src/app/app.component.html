@@ -1,5 +1,5 @@
 <div class="wrapper ">
-	<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+	<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg" *ngIf="auth.isLoggednIn()">
 		<div class="logo">
 			<a href="http://www.creative-tim.com" class="simple-text logo-normal">
 				Eckerds Pharmacy
@@ -23,6 +23,12 @@
 					<a class="nav-link" routerLink="/allRecords" *ngIf="auth.isLoggednIn()">
 						<i class="material-icons">info</i>
 						<p>All Records</p>
+					</a>
+				</li>
+				<li class="nav-item ">
+					<a class="nav-link" routerLink="/filterByLocation" *ngIf="auth.isLoggednIn()">
+						<i class="material-icons">filter_list</i>
+						<p>Filter By Location</p>
 					</a>
 				</li>
 				<li class="nav-item ">
@@ -72,7 +78,7 @@
 		<div class="content">
 			<router-outlet></router-outlet>
 		</div>
-		<footer class="footer">
+		<footer class="footer" *ngIf="auth.isLoggednIn()">
 			<div class="container-fluid">
 				<nav class="float-left">
 					<ul>

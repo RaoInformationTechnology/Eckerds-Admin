@@ -1,0 +1,83 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3">
+		</div>
+		<div class="col-md-6" *ngIf=transfer>
+			<div class="card">
+				<div class="card-header card-header-primary">
+					<h4 class="card-title">User Details</h4>
+					<p class="card-category">Price Check Request</p>
+				</div>
+				<div class="card-body">
+					<form>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="myLabel">Name:</label>
+									<div class="form-group">
+										<label class="bmd-label-floating">{{transfer.name}}</label>
+										<input type="text" class="form-control" disabled>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="myLabel">Email:</label>
+									<div class="form-group">
+										<label class="bmd-label-floating">{{transfer.email}}</label>
+										<input type="text" class="form-control" disabled>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="myLabel">Phone:</label>
+									<div class="form-group">
+										<label class="bmd-label-floating">{{transfer.phone}}</label>
+										<input type="text" class="form-control" disabled>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="myLabel">Location:</label>
+									<div class="form-group">
+										<label class="bmd-label-floating">{{transfer.location}}</label>
+										<input type="text" class="form-control" disabled>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="myLabel">Medicines:</label>
+									<div class="form-group">
+										<label class="bmd-label-floating">{{transfer.medicines}}</label>
+										<input type="text" class="form-control" disabled>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="myLabel">Note:</label>
+									<div class="form-group">
+										<label class="bmd-label-floating">{{transfer.note}}</label>
+										<input type="text" class="form-control" disabled>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+		</div>
+	</div>
+</div>

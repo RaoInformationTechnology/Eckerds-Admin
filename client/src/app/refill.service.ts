@@ -34,12 +34,28 @@ export class RefillService {
 	}
 
 	deleteRefillPrescription(refill_id): Observable<UserRefill[]>{
-    return this.http.post(`${this.baseUrl}/deleteRefillPrescription.php`,{'id':refill_id}).pipe(
-    	map((res) => {
-    		this.users = res['data'];
-    		return this.users;
-    	}),
-    	catchError(this.handleError));
+		return this.http.post(`${this.baseUrl}/deleteRefillPrescription.php`,{'id':refill_id}).pipe(
+			map((res) => {
+				this.users = res['data'];
+				return this.users;
+			}),
+			catchError(this.handleError));
 	}
 
+	filterTransferByLocation(filteredLocation){
+		console.log(filteredLocation);
+		return this.http.post(`${this.baseUrl}/refillFilter.php` , {'location': filteredLocation}).pipe(
+			map((res) => {
+				console.log(res);
+				return res;
+			}));
+	}
+
+	getUserRefillRequest(id){
+		return this.http.post(`${this.baseUrl}/selectOneRefill.php`,{'id':id}).pipe(
+			map((res)=>{
+				return res;
+				console.log(res);
+			}));
+	}
 }

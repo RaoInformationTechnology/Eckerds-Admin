@@ -7,6 +7,10 @@ import {LoginComponent} from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AllRecordsComponent} from './all-records/all-records.component';
+import {FilterByLocationComponent} from './filter-by-location/filter-by-location.component';
+import {ShowDetailPriceComponent} from './show-detail-price/show-detail-price.component';
+import {ShowDetailTransferComponent} from './show-detail-transfer/show-detail-transfer.component';
+import {ShowDetailRefillComponent} from './show-detail-refill/show-detail-refill.component';
 const routes: Routes = [
 {
 	path: '',
@@ -42,6 +46,22 @@ const routes: Routes = [
 	path: 'login',
 	component: LoginComponent,
 },
+{
+	path: 'filterByLocation',
+	component: FilterByLocationComponent,
+},
+{
+	path: 'showDetailPrice/:id',
+	component: ShowDetailPriceComponent,
+},
+{
+	path: 'showDetailTransfer/:id',
+	component: ShowDetailTransferComponent,
+},
+{
+	path: 'showDetailRefill/:id',
+	component: ShowDetailRefillComponent,
+}
 ];
 
 @NgModule({
