@@ -3,7 +3,7 @@
 require 'connect.php';
     
 $users = [];
-$sql = "SELECT *  FROM  transferPrescription";
+$sql = "SELECT *  FROM  transferprescription";
 
 if($result = mysqli_query($con,$sql))
 {

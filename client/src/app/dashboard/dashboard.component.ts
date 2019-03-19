@@ -19,23 +19,23 @@ export class DashboardComponent implements OnInit {
 	error = '';
 	success = '';
 
-	constructor(private refillService: RefillService, private transferService: TransferService,  private priceService: PriceService) { }
+	constructor(private refillService: RefillService, private transferService: TransferService,  private priceService: PriceService) { 
+	}
 
 	ngOnInit() {
 		this.getTransferList();
 		this.getRefillList();
 		this.getPriceCheck();
 	}
-
 	// transfer request ****************
 
 	getTransferList(): void{
 		this.transferService.getAll().subscribe(
 			(res: UserTransferPrescription[]) => {
 				this.usersTransferPrescription = res;
-			},
-			(err) => {
-				this.error = err;
+				(err) => {
+					this.error = err;
+				}
 			});
 	}
 
@@ -51,7 +51,6 @@ export class DashboardComponent implements OnInit {
 		this.refillService.getAll().subscribe(
 			(res: UserRefill[]) => {
 				this.usersRefill = res;
-
 			},
 			(err) => {
 				this.error = err;

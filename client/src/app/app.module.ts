@@ -18,6 +18,7 @@ import { FilterByLocationComponent } from './filter-by-location/filter-by-locati
 import { ShowDetailTransferComponent } from './show-detail-transfer/show-detail-transfer.component';
 import { ShowDetailRefillComponent } from './show-detail-refill/show-detail-refill.component';
 import { ShowDetailPriceComponent } from './show-detail-price/show-detail-price.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -41,7 +42,8 @@ import { ShowDetailPriceComponent } from './show-detail-price/show-detail-price.
   AppRoutingModule,
   HttpClientModule,
   FormsModule,
-  FilterPipeModule
+  FilterPipeModule,
+  NgxPaginationModule
   ],
   providers: [LoginService,AuthGuard],
   bootstrap: [AppComponent]

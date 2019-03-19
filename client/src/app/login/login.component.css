@@ -6,3 +6,12 @@
 	background-color: red;
 	color: white;
 }
+
+.logo{
+	text-align: center;
+}
+
+#text{
+	height: 70px;
+	width: 200px;
+}

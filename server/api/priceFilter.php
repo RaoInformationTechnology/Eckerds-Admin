@@ -2,7 +2,7 @@
 $data = json_decode(file_get_contents("php://input"));
 include "connect.php";
 
-$sql = "SELECT * FROM priceCheck WHERE location = '$data->location'";
+$sql = "SELECT * FROM pricecheck WHERE location = '$data->location'";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
 	$data = array() ;

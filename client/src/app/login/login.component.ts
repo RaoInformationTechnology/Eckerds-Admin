@@ -12,9 +12,7 @@ export class LoginComponent implements OnInit {
 	constructor(private loginService: LoginService, private router: Router) { }
 
 	ngOnInit() {
-
 	}
-
 	msg: string = null;
 	errmsg: string = null;
 
@@ -29,16 +27,10 @@ export class LoginComponent implements OnInit {
 			// console.log("respon..........",res)
 			localStorage.setItem("users",JSON.stringify(res));
 			this.msg = 'Logged in successfully! ';
-			setTimeout(() => {
 				this.router.navigate(['dashboard']);
-			}, 1000);
 		},err=>{
 			console.log("error",err);
 			this.errmsg = 'Incorrect info! ';
 		})
 	}
-
-	
-
-
 }

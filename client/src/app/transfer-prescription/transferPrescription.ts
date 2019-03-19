@@ -10,5 +10,6 @@ export class UserTransferPrescription {
     time: string,
     note: string,
     location: string,
+    createdAt: Date,
    ) {}
 }

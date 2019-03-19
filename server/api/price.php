@@ -3,7 +3,7 @@
 require 'connect.php';
     
 $users = [];
-$sql = "SELECT *  FROM  priceCheck";
+$sql = "SELECT *  FROM  pricecheck";
 
 if($result = mysqli_query($con,$sql))
 {

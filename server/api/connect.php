@@ -6,7 +6,7 @@ header("Access-Control-Allow-Methods: PUT, GET, POST");
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', 'password');
-define('DB_NAME', 'myEckerds');
+define('DB_NAME', 'myeckerds');
 
 // Connect with the database.
 function connect()

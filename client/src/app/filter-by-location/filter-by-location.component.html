@@ -1,45 +1,25 @@
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-<!-- CSS Files -->
-<link href="../assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="../assets/demo/demo.css" rel="stylesheet" />
-
-
-
 <div class="content">
 	<div class="container-fluid">
 		<h4>Select Location: </h4>
 		<div class="row">
 			<div class="col-md-6">
-				
-				<!-- <select (change)="selectChangeHandler($event)" class="custom-select">
-					<option value="">Select Location</option>
-					<option value="Wauchula">Wauchula</option>
-					<option value="Palmetto">Palmetto</option>
-					<option value="Bradenton">Bradenton</option>
-					<option value="Apollo Beach">Apollo Beach</option>
-					<option value="New Port Beach">New Port Beach</option>
-					<option value="New Port Richey">New Port Richey</option>
-					<option value="Lake Jackson">Lake Jackson</option>
-					<option value="West Bradenton">West Bradenton</option>
-				</select> -->
-				<select (change)="selectChangeHandler($event)" class="custom-select">
+				<select (change)="selectChangeHandler($event)" class="custom-select" ng-model="selectedLocation">
 					<option value="">Select Location</option>
 					<option *ngFor="let new of totalLocation">{{new.location}}</option>
 				</select>
 			</div>
 			<div class="col-md-6">
-				<!-- <button type="submit" class="btn filterBtn btn-primary" routerLink="/showDetailPrice/{{new.location}}">Filter</button>
-				-->			</div>
 			</div>
-
+		</div>
+		<div *ngIf="!selectedLocation">
+			<h1>Please choose a location</h1>
+		</div>
+		<div *ngIf="selectedLocation">
 			<h4 style="margin-top: 40px; font-weight: bolder;">Results for:- {{selectedLocation}}</h4>
 
-
-			<div class="row">
+			<div class="row" >
 				<div class="col-md-12">
-					<div class="card">
+					<div class="card" *ngIf="usersPriceCheck">
 						<div class="card-header card-header-primary">
 							<div class="row">
 								<div class="col-md-6">
@@ -70,7 +50,12 @@
 											Details
 										</th>
 									</thead>
-									<tbody *ngIf="usersPriceCheck">
+									<tbody>
+										<tr *ngIf="usersPriceCheck.length == 0">
+											<td colspan="5" class="text-center">
+												<h2> No Records </h2>
+											</td>
+										</tr>
 										<tr *ngFor="let user of usersPriceCheck | filterBy: userFilter">
 											<td style="display: none;">
 												{{user.pc_id}}
@@ -92,11 +77,6 @@
 											</td>
 										</tr>
 									</tbody>
-									<tbody *ngIf="!usersPriceCheck">
-										<div class="col-md-12">
-											<h5>No Data</h5>
-										</div>
-									</tbody>
 								</table>
 							</div>
 						</div>
@@ -106,7 +86,7 @@
 
 			<div class="row">
 				<div class="col-md-12">
-					<div class="card">
+					<div class="card" *ngIf="usersTransferRequest">
 						<div class="card-header card-header-primary">
 							<div class="row">
 								<div class="col-md-6">
@@ -138,6 +118,11 @@
 										</th>
 									</thead>
 									<tbody>
+										<tr *ngIf="usersTransferRequest.length == 0">
+											<td colspan="5" class="text-center">
+												<h2> No Records </h2>
+											</td>
+										</tr>
 										<tr *ngFor="let user of usersTransferRequest">
 											<td style="display: none;">
 												{{user.tp_id}}
@@ -168,7 +153,7 @@
 
 			<div class="row">
 				<div class="col-md-12">
-					<div class="card">
+					<div class="card" *ngIf="usersRefillRequest">
 						<div class="card-header card-header-primary">
 							<div class="row">
 								<div class="col-md-6">
@@ -229,4 +214,5 @@
 			</div>
 		</div>
 	</div>
+</div>
 

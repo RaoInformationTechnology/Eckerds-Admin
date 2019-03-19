@@ -3,7 +3,7 @@
 require 'connect.php';
     
 $users = [];
-$sql = "SELECT *  FROM  refillPrescription";
+$sql = "SELECT *  FROM  refillprescription";
 
 if($result = mysqli_query($con,$sql))
 {
