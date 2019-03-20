@@ -13,8 +13,5 @@
 }
 
 .ngx-pagination .current {
-    padding: 0.1875rem 0.625rem;
     background: #992AA8 !important;
-    color: #fefefe;
-    cursor: default;
 }
