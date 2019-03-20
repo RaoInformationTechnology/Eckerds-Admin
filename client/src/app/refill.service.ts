@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 import {UserRefill} from './refill-prescription/refillPrescription';
+import {config} from './config';
 
 
 @Injectable({
@@ -34,7 +35,7 @@ export class RefillService {
 	}
 
 	deleteRefillPrescription(refill_id): Observable<UserRefill[]>{
-		return this.http.post(`${this.baseUrl}/deleteRefillPrescription.php`,{'id':refill_id}).pipe(
+		return this.http.post(config.baseApiUrl + `deleteRefillPrescription.php`,{'id':refill_id}).pipe(
 			map((res) => {
 				this.users = res['data'];
 				return this.users;
@@ -44,7 +45,7 @@ export class RefillService {
 
 	filterTransferByLocation(filteredLocation){
 		console.log(filteredLocation);
-		return this.http.post(`${this.baseUrl}/refillFilter.php` , {'location': filteredLocation}).pipe(
+		return this.http.post(config.baseApiUrl + `refillFilter.php` , {'location': filteredLocation}).pipe(
 			map((res) => {
 				console.log(res);
 				return res;
@@ -52,7 +53,7 @@ export class RefillService {
 	}
 
 	getUserRefillRequest(id){
-		return this.http.post(`${this.baseUrl}/selectOneRefill.php`,{'id':id}).pipe(
+		return this.http.post(config.baseApiUrl + `selectOneRefill.php`,{'id':id}).pipe(
 			map((res)=>{
 				return res;
 				console.log(res);

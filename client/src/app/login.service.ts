@@ -17,11 +17,11 @@ export class LoginService {
 
 
 	constructor(private http: HttpClient) { }
-	baseUrl = 'http://localhost/Bhavik/myeckerdsAdmin/server/api';
+	// baseUrl = 'http://localhost/Bhavik/myeckerdsAdmin/server/api';
 	
 
 	authorize(detail){
-		return this.http.post("http://localhost/Bhavik/myeckerdsAdmin/server/api/login.php", detail)
+		return this.http.post(config.baseApiUrl + "login.php", detail)
 		console.log("service response.............", detail);
 	}
 

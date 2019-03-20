@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 import {UserTransferPrescription} from './transfer-prescription/transferPrescription';
+import {config} from './config';
 
 
 @Injectable({
@@ -25,7 +26,7 @@ export class TransferService {
 	constructor(private http: HttpClient) { }
 
 	getAll(): Observable<UserTransferPrescription[]> {
-		return this.http.get(`${this.baseUrl}/transfer.php`).pipe(
+		return this.http.get(config.baseApiUrl + `transfer.php`).pipe(
 			map((res) => {
 				this.users = res['data'];
 				return this.users;
@@ -34,17 +35,17 @@ export class TransferService {
 	}
 
 	deleteTransferPrescription(tp_id): Observable<UserTransferPrescription[]>{
-    return this.http.post(`${this.baseUrl}/deleteTransferPrescription.php`,{'id':tp_id}).pipe(
-    	map((res) => {
-    		this.users = res['data'];
-    		return this.users;
-    	}),
-    	catchError(this.handleError));
+		return this.http.post(config.baseApiUrl +`deleteTransferPrescription.php`,{'id':tp_id}).pipe(
+			map((res) => {
+				this.users = res['data'];
+				return this.users;
+			}),
+			catchError(this.handleError));
 	}
 
 	filterTransferByLocation(filteredLocation){
 		console.log(filteredLocation);
-		return this.http.post(`${this.baseUrl}/transferFilter.php` , {'location': filteredLocation}).pipe(
+		return this.http.post(config.baseApiUrl + `/transferFilter.php` , {'location': filteredLocation}).pipe(
 			map((res) => {
 				console.log(res);
 				return res;
@@ -52,7 +53,7 @@ export class TransferService {
 	}
 
 	getUserTransferRequest(id){
-		return this.http.post(`${this.baseUrl}/selectOneTransfer.php`,{'id':id}).pipe(
+		return this.http.post(config.baseApiUrl + `/selectOneTransfer.php`,{'id':id}).pipe(
 			map((res)=>{
 				return res;
 				console.log(res);
