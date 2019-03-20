@@ -30,6 +30,15 @@ export class ShowDetailPriceComponent implements OnInit {
 		.subscribe(price =>{
 			this.price = price[0];
 		})
-	};
+	}
+
+	status(pc_id, status){
+		console.log(pc_id + status);
+		this.priceService
+		.updateStatus(pc_id, status)
+		.subscribe(()=>{
+			this.getSingleEmployee();
+		});
+	}
 
 }

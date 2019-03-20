@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 	}
 	msg: string = null;
 	errmsg: string = null;
+	loading = false;
 
 	user = {
 		email: "",
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
 	}
 
 	login(detail){
-		// console.log(detail);
+		this.loading = true;
+		console.log(detail);
 		this.loginService.authorize(detail).subscribe(res=>{
 			// console.log("respon..........",res)
 			localStorage.setItem("users",JSON.stringify(res));
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
 		},err=>{
 			console.log("error",err);
 			this.errmsg = 'Incorrect info! ';
+			this.loading = false;
 		})
 	}
 }

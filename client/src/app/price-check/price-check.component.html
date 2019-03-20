@@ -27,13 +27,13 @@
                     Name
                   </th>
                   <th>
-                    Phone
-                  </th>
-                  <th>
                     Email
                   </th>
                   <th>
                     Location
+                  </th>
+                  <th>
+                    Status
                   </th>
                   <th>
                     Details
@@ -48,13 +48,13 @@
                       {{user.name}}
                     </td>
                     <td>
-                      {{user.phone}}
-                    </td>
-                    <td>
                       {{user.email}}
                     </td>
                     <td>
                       {{user.location}}
+                    </td>
+                    <td>
+                      <a (click)="status(user.pc_id, user.isPublished)" routerLink="/price">{{user.isPublished}}</a>
                     </td>
                     <td class="text-primary">
                       <a routerLink="/showDetailPrice/{{user.pc_id}}">View Details</a>

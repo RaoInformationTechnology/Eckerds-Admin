@@ -40,4 +40,13 @@ export class TransferPrescriptionComponent implements OnInit {
       this.router.navigate(['home']);
     })
   }
+
+  status(tp_id, status){
+    console.log(tp_id + status);
+    this.transferService
+    .updateStatus(tp_id, status)
+    .subscribe(()=>{
+      this.getTransferList();
+    });
+  }
 }

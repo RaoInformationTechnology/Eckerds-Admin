@@ -59,4 +59,12 @@ export class TransferService {
 				console.log(res);
 			}));
 	}
+
+	updateStatus(tp_id, status){
+		return this.http.post(config.baseApiUrl +  `statusTransfer.php`, {'tp_id':tp_id, 'status': status}).pipe(
+			map((res)=>{
+				console.log('hello');
+			}));
+	}
+
 }

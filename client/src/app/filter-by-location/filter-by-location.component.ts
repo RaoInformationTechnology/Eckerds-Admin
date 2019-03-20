@@ -25,6 +25,7 @@ export class FilterByLocationComponent implements OnInit {
 	constructor(private priceService: PriceService,  private router: Router, private transferService: TransferService, private refillService: RefillService) { }
 
 	ngOnInit() {
+		
 	}
 
 	selectedLocation: string = '';

@@ -42,4 +42,13 @@ export class PriceCheckComponent implements OnInit {
       this.getPriceCheck();
     })
   }
+
+  status(pc_id, status){
+    console.log(pc_id + status);
+    this.priceService
+    .updateStatus(pc_id, status)
+    .subscribe(()=>{
+      this.getPriceCheck();
+    });
+  }
 }

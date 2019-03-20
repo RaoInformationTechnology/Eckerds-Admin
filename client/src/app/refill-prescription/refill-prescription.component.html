@@ -27,13 +27,13 @@
                     Name
                   </th>
                   <th>
-                    Phone
-                  </th>
-                  <th>
                     Email
                   </th>
                   <th>
                     Location
+                  </th>
+                  <th>
+                    Status
                   </th>
                   <th>
                     Details
@@ -48,13 +48,13 @@
                       {{user.name}}
                     </td>
                     <td>
-                      {{user.phone}}
-                    </td>
-                    <td>
                       {{user.email}}
                     </td>
                     <td>
                       {{user.location}}
+                    </td>
+                    <td>
+                      <a (click)="status(user.refill_id, user.isPublished)" routerLink="/refill">{{user.isPublished}}</a>
                     </td>
                     <td class="text-primary">
                       <a routerLink="/showDetailRefill/{{user.refill_id}}">View Details</a>

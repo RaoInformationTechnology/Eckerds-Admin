@@ -32,5 +32,14 @@ export class ShowDetailRefillComponent implements OnInit {
 			this.refill = price[0];
 			console.log(this.refill);
 		})
-	};
+	}
+
+	status(refill_id, status){
+		console.log(refill_id + status);
+		this.refillService
+		.updateStatus(refill_id, status)
+		.subscribe(()=>{
+			this.getSingleEmployee();
+		});
+	}
 }

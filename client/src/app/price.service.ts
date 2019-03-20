@@ -57,4 +57,12 @@ export class PriceService {
 			 console.log(res);
 		}));
 	}
+
+	updateStatus(pc_id, status){
+		return this.http.post(config.baseApiUrl +  `statusPrice.php`, {'pc_id':pc_id, 'status': status}).pipe(
+			map((res)=>{
+				console.log('hello');
+			}));
+	}
+
 }

@@ -72,6 +72,11 @@
 								</div>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h5>Status: <a (click)="status(transfer.tp_id, transfer.isPublished)" routerLink="/showDetailTransfer/{{transfer.transfer_id}}"><span style="color: blue">{{transfer.isPublished}}</span></a></h5>
+							</div>
+						</div>
 						<div class="clearfix"></div>
 					</form>
 				</div>

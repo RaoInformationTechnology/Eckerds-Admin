@@ -21,10 +21,10 @@ if($result = mysqli_query($con,$sql))
     $users[$cr]['myDate']    = $row['myDate'];
     $users[$cr]['myTime']    = $row['myTime'];
     $users[$cr]['note']    = $row['note'];
+    $users[$cr]['isPublished']    = $row['isPublished'];
     $users[$cr]['createdAt']    = $row['createdAt'];
     $cr++;
-  }
-    
+  }    
   echo json_encode(['data'=>$users]);
 }
 else

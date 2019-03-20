@@ -15,3 +15,9 @@
 	height: 70px;
 	width: 200px;
 }
+
+img.loadingClass{
+	display: inline-block;
+	height: 25px;
+	margin-left: 15px;
+}

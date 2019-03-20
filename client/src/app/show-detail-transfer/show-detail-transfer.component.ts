@@ -30,6 +30,14 @@ export class ShowDetailTransferComponent implements OnInit {
 		.subscribe(price =>{
 			this.transfer = price[0];
 		})
-	};
+	}
 
+	status(tp_id, status){
+		console.log(tp_id + status);
+		this.transferService
+		.updateStatus(tp_id, status)
+		.subscribe(()=>{
+			this.getSingleEmployee();
+		});
+	}
 }

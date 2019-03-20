@@ -13,7 +13,7 @@ export class RefillPrescriptionComponent implements OnInit {
   error = '';
   success = '';
   refillRequest: any;
-    userFilter: UserRefill = {location: ''};
+  userFilter: UserRefill = {location: ''};
 
   constructor(private refillService: RefillService) { }
 
@@ -39,5 +39,14 @@ export class RefillPrescriptionComponent implements OnInit {
     .subscribe(() => {
       this.getRefillList();
     })
+  }
+
+  status(refill_id, status){
+    console.log(refill_id + status);
+    this.refillService
+    .updateStatus(refill_id, status)
+    .subscribe(()=>{
+      this.getRefillList();
+    });
   }
 }

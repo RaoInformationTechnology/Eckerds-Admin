@@ -19,14 +19,12 @@ export class RefillService {
 		// return an observable with a user friendly message
 		return throwError('Error! something went wrong.');
 	}
-
-	baseUrl = 'http://localhost/Bhavik/myeckerdsAdmin/server/api';
 	users: UserRefill[];
 
 	constructor(private http: HttpClient) { }
 
 	getAll(): Observable<UserRefill[]> {
-		return this.http.get(`${this.baseUrl}/refill.php`).pipe(
+		return this.http.get(config.baseApiUrl + `refill.php`).pipe(
 			map((res) => {
 				this.users = res['data'];
 				return this.users;
@@ -57,6 +55,13 @@ export class RefillService {
 			map((res)=>{
 				return res;
 				console.log(res);
+			}));
+	}
+
+	updateStatus(refill_id, status){
+		return this.http.post(config.baseApiUrl +  `statusRefill.php`, {'refill_id':refill_id, 'status': status}).pipe(
+			map((res)=>{
+				console.log('hello');
 			}));
 	}
 }

@@ -7,6 +7,7 @@ export class UserRefill {
     rxNumbers: string,
     date: string,
     time: string,
-    note: string
+    note: string,
+    isPublished: string,
    ) {}
 }

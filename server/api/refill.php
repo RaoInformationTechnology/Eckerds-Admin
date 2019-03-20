@@ -19,6 +19,7 @@ if($result = mysqli_query($con,$sql))
     $users[$cr]['myDate']    = $row['date'];
     $users[$cr]['myTime']    = $row['time'];
     $users[$cr]['note']    = $row['note'];
+    $users[$cr]['isPublished']    = $row['isPublished'];
     $users[$cr]['createdAt']    = $row['createdAt'];
     $cr++;
   }
