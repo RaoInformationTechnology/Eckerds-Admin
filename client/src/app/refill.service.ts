@@ -64,4 +64,13 @@ export class RefillService {
 				console.log('hello');
 			}));
 	}
+
+	getRefillPublished(){
+		return this.http.get(config.baseApiUrl + `refillPublished.php`).pipe(
+			map((res) => {
+				this.users = res['data'];
+				return this.users;
+			}),
+			catchError(this.handleError));
+	}
 }

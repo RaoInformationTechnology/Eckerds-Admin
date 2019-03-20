@@ -49,18 +49,22 @@ const routes: Routes = [
 {
 	path: 'filterByLocation',
 	component: FilterByLocationComponent,
+	canActivate: [AuthGuard]
 },
 {
 	path: 'showDetailPrice/:id',
 	component: ShowDetailPriceComponent,
+	canActivate: [AuthGuard]
 },
 {
 	path: 'showDetailTransfer/:id',
 	component: ShowDetailTransferComponent,
+	canActivate: [AuthGuard]
 },
 {
 	path: 'showDetailRefill/:id',
 	component: ShowDetailRefillComponent,
+	canActivate: [AuthGuard]
 }
 ];
 

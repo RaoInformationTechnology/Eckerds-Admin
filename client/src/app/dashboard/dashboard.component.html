@@ -1,8 +1,6 @@
 
 <div class="container-fluid">
-  <div class="navbar-wrapper">
-    <a class="navbar-brand" routerLink='/dashboard'>My Eckerds Dashboard</a>
-  </div>
+  <a class="navbar-brand" routerLink='/dashboard'><h3 style="font-weight: bolder;">My Eckerds Dashboard</h3></a>
 </div>
 
 <div class="container-fluid">
@@ -16,10 +14,11 @@
           <p class="card-category">Refilling Request</p>
           <h3 class="card-title">{{ countRefillingRequest(null) }}
           </h3>
+          <p class="card-category">Unpublished: {{unpublishedRefill}}</p> 
         </div>
         <div class="card-footer">
           <div class="stats">
-            <a href="" routerLink="/refill">View Details</a>
+            <a href="" routerLink="/refill">View Details</a>  
           </div>
         </div>
       </div>
@@ -32,6 +31,7 @@
           </div>
           <p class="card-category">Transfer Request</p>
           <h3 class="card-title">{{ countTransferRequest(null) }}</h3>
+          <p class="card-category">Unpublished: {{unpublishedTransfer}}</p>          
         </div>
         <div class="card-footer">
           <div class="stats">
@@ -48,6 +48,7 @@
           </div>
           <p class="card-category">Price Check Request</p>
           <h3 class="card-title">{{ countPriceRequest(null) }}</h3>
+          <p class="card-category">Unpublished: {{unpublishedPrice}}</p>
         </div>
         <div class="card-footer">
           <div class="stats">

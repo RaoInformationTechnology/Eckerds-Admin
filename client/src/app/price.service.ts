@@ -65,4 +65,13 @@ export class PriceService {
 			}));
 	}
 
+	getPricePublished(){
+		return this.http.get(config.baseApiUrl + `pricePublished.php`).pipe(
+			map((res) => {
+				this.users = res['data'];
+				return this.users;
+			}),
+			catchError(this.handleError));
+	}
+
 }

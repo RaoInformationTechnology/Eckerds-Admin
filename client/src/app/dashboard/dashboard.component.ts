@@ -5,6 +5,7 @@ import {UserTransferPrescription} from '../transfer-prescription/transferPrescri
 import {TransferService} from '../transfer.service';
 import {PriceService} from '../price.service';
 import {UserPriceCheck} from '../price-check/priceCheck';
+import {Chart} from 'chart.js';
 
 @Component({
 	selector: 'app-dashboard',
@@ -18,6 +19,15 @@ export class DashboardComponent implements OnInit {
 	usersPriceCheck :  UserPriceCheck[];
 	error = '';
 	success = '';
+	userTransferPublished: any  =  [];
+	userRefillPublished: any  =  [];
+	userPricePublished: any  =  [];
+	publishedTransfer: any;
+	publishedRefill: any;
+	publishedPrice: any;
+	unpublishedTransfer: any;
+	unpublishedRefill: any;
+	unpublishedPrice: any;
 
 	constructor(private refillService: RefillService, private transferService: TransferService,  private priceService: PriceService) { 
 	}
@@ -26,6 +36,9 @@ export class DashboardComponent implements OnInit {
 		this.getTransferList();
 		this.getRefillList();
 		this.getPriceCheck();
+		this.getTransferListPublished();
+		this.getRefillListPublished();
+		this.getPriceListPublished();
 	}
 	// transfer request ****************
 
@@ -38,6 +51,17 @@ export class DashboardComponent implements OnInit {
 				}
 			});
 	}
+
+	getTransferListPublished(): void{
+		this.transferService.getTransferPublished().subscribe(
+			(res) => {
+				this.userTransferPublished = res;
+				this.publishedTransfer = this.userTransferPublished.length;
+				this.unpublishedTransfer = this.usersTransferPrescription.length - this.userTransferPublished.length;
+				console.log(this.unpublishedTransfer);
+				console.log(this.publishedTransfer);
+			})
+	};
 
 	countTransferRequest(flag) {
 		if (flag === null) {
@@ -58,6 +82,17 @@ export class DashboardComponent implements OnInit {
 			);
 	}
 
+	getRefillListPublished(): void{
+		this.refillService.getRefillPublished().subscribe(
+			(res) => {
+				this.userRefillPublished = res;
+				this.publishedRefill = this.userRefillPublished.length;
+				this.unpublishedRefill = this.usersRefill.length - this.userRefillPublished.length;
+				console.log(this.unpublishedRefill);
+				console.log(this.publishedRefill);
+			})
+	};
+
 	countRefillingRequest(flag) {
 		if (flag === null) {
 			return this.usersRefill.length;
@@ -75,6 +110,17 @@ export class DashboardComponent implements OnInit {
 				this.error = err;
 			}
 			);
+	}
+
+	getPriceListPublished(): void{
+		this.priceService.getPricePublished().subscribe(
+			(res) => {
+				this.userPricePublished = res;
+				this.publishedPrice = this.userPricePublished.length;
+				this.unpublishedPrice = this.usersPriceCheck.length - this.userPricePublished.length;
+				console.log(this.unpublishedPrice);
+				console.log(this.publishedPrice);
+			})
 	}
 
 	countPriceRequest(flag) {

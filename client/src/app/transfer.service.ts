@@ -67,4 +67,14 @@ export class TransferService {
 			}));
 	}
 
+	getTransferPublished(){
+		return this.http.get(config.baseApiUrl + `transferPublished.php`).pipe(
+			map((res) => {
+				this.users = res['data'];
+				return this.users;
+			}),
+			catchError(this.handleError));
+
+	}
+
 }
