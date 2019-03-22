@@ -14,7 +14,6 @@ import {config} from './config';
 export class RefillService {
 
 	private handleError(error: HttpErrorResponse) {
-		console.log(error);
 
 		// return an observable with a user friendly message
 		return throwError('Error! something went wrong.');
@@ -42,10 +41,8 @@ export class RefillService {
 	}
 
 	filterTransferByLocation(filteredLocation){
-		console.log(filteredLocation);
 		return this.http.post(config.baseApiUrl + `refillFilter.php` , {'location': filteredLocation}).pipe(
 			map((res) => {
-				console.log(res);
 				return res;
 			}));
 	}
@@ -54,14 +51,12 @@ export class RefillService {
 		return this.http.post(config.baseApiUrl + `selectOneRefill.php`,{'id':id}).pipe(
 			map((res)=>{
 				return res;
-				console.log(res);
 			}));
 	}
 
 	updateStatus(refill_id, status){
 		return this.http.post(config.baseApiUrl +  `statusRefill.php`, {'refill_id':refill_id, 'status': status}).pipe(
 			map((res)=>{
-				console.log('hello');
 			}));
 	}
 

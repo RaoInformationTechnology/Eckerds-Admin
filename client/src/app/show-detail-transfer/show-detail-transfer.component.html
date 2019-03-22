@@ -74,7 +74,16 @@
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<h5>Status: <a (click)="status(transfer.tp_id, transfer.isPublished)" routerLink="/showDetailTransfer/{{transfer.transfer_id}}"><span style="color: #9A2AA8">{{transfer.isPublished}}</span></a></h5>
+								<label class="myLabel">Status:</label>
+								<div class="material-switch" *ngIf="transfer.isPublish ==1">
+									<input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox" (change)="status(transfer.tp_id, transfer.isPublish)" checked="checked" />
+									<label for="someSwitchOptionPrimary" class="label-primary"></label>
+								</div>
+
+								<div class="material-switch" *ngIf="transfer.isPublish==0">
+									<input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox" (change)="status(transfer.tp_id, transfer.isPublish)"/>
+									<label for="someSwitchOptionPrimary" class="label-primary"></label>
+								</div>
 							</div>
 						</div>
 						<div class="clearfix"></div>

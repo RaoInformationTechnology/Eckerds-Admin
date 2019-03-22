@@ -14,13 +14,9 @@ import {config} from './config';
 export class TransferService {
 
 	private handleError(error: HttpErrorResponse) {
-		console.log(error);
-
-		// return an observable with a user friendly message
 		return throwError('Error! something went wrong.');
 	}
 
-	baseUrl = 'http://localhost/Bhavik/myeckerdsAdmin/server/api';
 	users: UserTransferPrescription[];
 
 	constructor(private http: HttpClient) { }
@@ -44,26 +40,22 @@ export class TransferService {
 	}
 
 	filterTransferByLocation(filteredLocation){
-		console.log(filteredLocation);
-		return this.http.post(config.baseApiUrl + `/transferFilter.php` , {'location': filteredLocation}).pipe(
+		return this.http.post(config.baseApiUrl + `transferFilter.php` , {'location': filteredLocation}).pipe(
 			map((res) => {
-				console.log(res);
 				return res;
 			}));
 	}
 
 	getUserTransferRequest(id){
-		return this.http.post(config.baseApiUrl + `/selectOneTransfer.php`,{'id':id}).pipe(
+		return this.http.post(config.baseApiUrl + `selectOneTransfer.php`,{'id':id}).pipe(
 			map((res)=>{
 				return res;
-				console.log(res);
 			}));
 	}
 
 	updateStatus(tp_id, status){
 		return this.http.post(config.baseApiUrl +  `statusTransfer.php`, {'tp_id':tp_id, 'status': status}).pipe(
 			map((res)=>{
-				console.log('hello');
 			}));
 	}
 

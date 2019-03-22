@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserTransferPrescription} from './transferPrescription';
 import {TransferService} from '../transfer.service';
 import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-transfer-prescription',
@@ -12,7 +13,6 @@ export class TransferPrescriptionComponent implements OnInit {
 
 	usersTransferPrescription :  UserTransferPrescription[];
 	error = '';
-	success = '';
   transferRequest: any;
   userFilter: UserTransferPrescription = {location: ''};
   
@@ -42,11 +42,17 @@ export class TransferPrescriptionComponent implements OnInit {
   }
 
   status(tp_id, status){
-    console.log(tp_id + status);
+    console.log(tp_id + "" + status);
     this.transferService
     .updateStatus(tp_id, status)
     .subscribe(()=>{
       this.getTransferList();
+      if(status==1){
+        Swal.fire("", "Successfully Unpublished", "success")
+      }else{
+        Swal.fire("", "Successfully Published", "success")
+      }
+      
     });
   }
 }

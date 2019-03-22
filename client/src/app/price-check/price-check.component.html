@@ -54,7 +54,15 @@
                       {{user.location}}
                     </td>
                     <td>
-                      <a (click)="status(user.pc_id, user.isPublished)" routerLink="/price">{{user.isPublished}}</a>
+                      <div class="material-switch" *ngIf="user.isPublish == 0">
+                        <input id="{{user.pc_id}}" name="someSwitchOption001" type="checkbox" (change)="status(user.pc_id, user.isPublish)"/>
+                        <label for="{{user.pc_id}}" class="label-primary"></label>
+                      </div>
+
+                      <div class="material-switch" *ngIf="user.isPublish == 1">
+                        <input id="{{user.pc_id}}" name="someSwitchOption001" type="checkbox" (change)="status(user.pc_id, user.isPublish)" checked="checked" />
+                        <label for="{{user.pc_id}}" class="label-primary"></label>
+                      </div>
                     </td>
                     <td class="text-primary">
                       <a routerLink="/showDetailPrice/{{user.pc_id}}">View Details</a>

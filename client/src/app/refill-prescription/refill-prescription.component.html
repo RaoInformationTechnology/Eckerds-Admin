@@ -54,7 +54,15 @@
                       {{user.location}}
                     </td>
                     <td>
-                      <a (click)="status(user.refill_id, user.isPublished)" routerLink="/refill">{{user.isPublished}}</a>
+                      <div class="material-switch" *ngIf="user.isPublish == 0">
+                        <input id="{{user.refill_id}}" name="someSwitchOption001" type="checkbox" (change)="status(user.refill_id, user.isPublish)"/>
+                        <label for="{{user.refill_id}}" class="label-primary"></label>
+                      </div>
+
+                      <div class="material-switch" *ngIf="user.isPublish == 1">
+                        <input id="{{user.refill_id}}" name="someSwitchOption001" type="checkbox" (change)="status(user.refill_id, user.isPublish)" checked="checked"/>
+                        <label for="{{user.refill_id}}" class="label-primary"></label>
+                      </div>
                     </td>
                     <td class="text-primary">
                       <a routerLink="/showDetailRefill/{{user.refill_id}}">View Details</a>

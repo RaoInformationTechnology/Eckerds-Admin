@@ -24,15 +24,13 @@ export class LoginComponent implements OnInit {
 
 	login(detail){
 		this.loading = true;
-		console.log(detail);
 		this.loginService.authorize(detail).subscribe(res=>{
-			// console.log("respon..........",res)
 			localStorage.setItem("users",JSON.stringify(res));
 			this.msg = 'Logged in successfully! ';
 				this.router.navigate(['dashboard']);
 		},err=>{
 			console.log("error",err);
-			this.errmsg = 'Incorrect info! ';
+			this.errmsg = 'Incorrect info!';
 			this.loading = false;
 		})
 	}

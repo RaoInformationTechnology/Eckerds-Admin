@@ -74,7 +74,16 @@
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<h5>Status: <a (click)="status(price.pc_id, price.isPublished)" routerLink="/showDetailPrice/{{price.pc_id}}"><span style="color: #9A2AA8">{{price.isPublished}}</span></a></h5>
+
+								<label class="myLabel">Status:</label>
+								<div class="material-switch" *ngIf="price.isPublish ==0">
+									<input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox" (change)="status(price.pc_id, price.isPublish)"/>
+									<label for="someSwitchOptionPrimary" class="label-primary"></label>								</div>
+
+								<div class="material-switch" *ngIf="price.isPublish ==1">
+									<input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox" (change)="status(price.pc_id, price.isPublish)" checked="checked" />
+									<label for="someSwitchOptionPrimary" class="label-primary"></label>
+								</div>
 							</div>
 						</div>
 						<div class="clearfix"></div>

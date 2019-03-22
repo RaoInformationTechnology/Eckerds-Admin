@@ -18,7 +18,7 @@ if($result = mysqli_query($con,$sql))
     $users[$cr]['location']    = $row['location'];
     $users[$cr]['medicines']    = $row['medicines'];
     $users[$cr]['note']    = $row['note'];
-    $users[$cr]['isPublished']    = $row['isPublished'];
+    $users[$cr]['isPublish']    = $row['isPublish'];
     $users[$cr]['createdAt']    = $row['createdAt'];
     $cr++;
   }

@@ -1,11 +1,11 @@
 <?php
 require "connect.php";
 $data = json_decode(file_get_contents("php://input"));
-if($data->status == 'unpublished'){
-	$sql = "UPDATE pricecheck SET isPublished = 'published' WHERE pc_id = $data->pc_id ";
+if($data->status == 0){
+	$sql = "UPDATE pricecheck SET isPublish = 1 WHERE pc_id = $data->pc_id ";
 	$result = $con->query($sql);
 }else{
-	$sql = "UPDATE pricecheck SET isPublished = 'unpublished' WHERE pc_id = $data->pc_id";
+	$sql = "UPDATE pricecheck SET isPublish = 0 WHERE pc_id = $data->pc_id";
 	$result = $con->query($sql);
 }
 ?>

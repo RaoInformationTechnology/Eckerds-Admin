@@ -3,7 +3,7 @@
 require 'connect.php';
     
 $users = [];
-$sql = "SELECT *  FROM  pricecheck WHERE isPublished = 'published' ";
+$sql = "SELECT *  FROM  pricecheck WHERE isPublish = true ";
 
 if($result = mysqli_query($con,$sql))
 {

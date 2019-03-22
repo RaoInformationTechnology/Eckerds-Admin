@@ -7,15 +7,16 @@ import {PriceService} from '../price.service';
 import {RefillService} from '../refill.service';
 import {TransferService} from '../transfer.service';
 import {AppComponent} from '../app.component';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-show-detail-transfer',
-  templateUrl: './show-detail-transfer.component.html',
-  styleUrls: ['./show-detail-transfer.component.css']
+	selector: 'app-show-detail-transfer',
+	templateUrl: './show-detail-transfer.component.html',
+	styleUrls: ['./show-detail-transfer.component.css']
 })
 export class ShowDetailTransferComponent implements OnInit {
 
-  constructor(private priceService: PriceService,private refillService: RefillService,private transferService: TransferService, private router: Router,
+	constructor(private priceService: PriceService,private refillService: RefillService,private transferService: TransferService, private router: Router,
 		private route: ActivatedRoute) { }
 	transfer:UserTransferPrescription [];
 
@@ -38,6 +39,11 @@ export class ShowDetailTransferComponent implements OnInit {
 		.updateStatus(tp_id, status)
 		.subscribe(()=>{
 			this.getSingleEmployee();
+			if(status==1){
+				Swal.fire("", "Successfully Unpublished", "success")
+			}else{
+				Swal.fire("", "Successfully Published", "success")
+			}
 		});
 	}
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UserRefill} from './refillPrescription';
 import {RefillService} from '../refill.service';
+import {Router,Params} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-refill-prescription',
@@ -14,6 +16,7 @@ export class RefillPrescriptionComponent implements OnInit {
   success = '';
   refillRequest: any;
   userFilter: UserRefill = {location: ''};
+
 
   constructor(private refillService: RefillService) { }
 
@@ -42,11 +45,15 @@ export class RefillPrescriptionComponent implements OnInit {
   }
 
   status(refill_id, status){
-    console.log(refill_id + status);
     this.refillService
     .updateStatus(refill_id, status)
     .subscribe(()=>{
       this.getRefillList();
+      if(status==1){
+        Swal.fire("", "Successfully Unpublished", "success")
+      }else{
+        Swal.fire("", "Successfully Published", "success")
+      }
     });
   }
 }

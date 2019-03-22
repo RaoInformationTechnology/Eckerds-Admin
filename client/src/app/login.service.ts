@@ -10,7 +10,6 @@ import {config} from './config';
 export class LoginService {
 
 	private handleError(error: HttpErrorResponse) {
-		console.log(error);
 		return throwError('Error! something went wrong.');
 	}
 
@@ -22,7 +21,6 @@ export class LoginService {
 
 	authorize(detail){
 		return this.http.post(config.baseApiUrl + "login.php", detail)
-		console.log("service response.............", detail);
 	}
 
 	sendToken(detail: string) {

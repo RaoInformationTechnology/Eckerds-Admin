@@ -7,6 +7,7 @@ import {PriceService} from '../price.service';
 import {RefillService} from '../refill.service';
 import {TransferService} from '../transfer.service';
 import {AppComponent} from '../app.component';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-show-detail-price',
@@ -38,6 +39,11 @@ export class ShowDetailPriceComponent implements OnInit {
 		.updateStatus(pc_id, status)
 		.subscribe(()=>{
 			this.getSingleEmployee();
+			if(status==1){
+				Swal.fire("", "Successfully Unpublished", "success")
+			}else{
+				Swal.fire("", "Successfully Published", "success")
+			}
 		});
 	}
 

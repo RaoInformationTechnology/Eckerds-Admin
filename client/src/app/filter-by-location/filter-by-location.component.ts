@@ -29,24 +29,20 @@ export class FilterByLocationComponent implements OnInit {
 	}
 
 	selectedLocation: string = '';
-
 	selectChangeHandler(event: any): void{
 		this.selectedLocation = event.target.value;
 		var filteredLocation = this.selectedLocation;
 		this.priceService.filterPriceByLocation(filteredLocation).subscribe(
 			(res: UserPriceCheck[]) => {
 				this.usersPriceCheck = res;
-				console.log(this.usersPriceCheck);
 			});
 		this.transferService.filterTransferByLocation(filteredLocation).subscribe(
 			(res: UserPriceCheck[]) => {
 				this.usersTransferRequest = res;
-				console.log(this.usersTransferRequest);
 			});
 		this.refillService.filterTransferByLocation(filteredLocation).subscribe(
 			(res: UserPriceCheck[]) => {
 				this.usersRefillRequest = res;
-				console.log(this.usersRefillRequest);
 			});
 	}
 }

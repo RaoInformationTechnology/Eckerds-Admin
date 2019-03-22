@@ -19,6 +19,9 @@ export class DashboardComponent implements OnInit {
 	usersPriceCheck :  UserPriceCheck[];
 	error = '';
 	success = '';
+	usersTransferLen: any;
+	usersRefillLen: any;
+	usersPriceLen: any;
 	userTransferPublished: any  =  [];
 	userRefillPublished: any  =  [];
 	userPricePublished: any  =  [];
@@ -31,7 +34,7 @@ export class DashboardComponent implements OnInit {
 
 	constructor(private refillService: RefillService, private transferService: TransferService,  private priceService: PriceService) { 
 	}
-
+																				
 	ngOnInit() {
 		this.getTransferList();
 		this.getRefillList();
@@ -46,6 +49,7 @@ export class DashboardComponent implements OnInit {
 		this.transferService.getAll().subscribe(
 			(res: UserTransferPrescription[]) => {
 				this.usersTransferPrescription = res;
+				this.usersTransferLen = this.usersTransferPrescription.length;
 				(err) => {
 					this.error = err;
 				}
@@ -58,23 +62,15 @@ export class DashboardComponent implements OnInit {
 				this.userTransferPublished = res;
 				this.publishedTransfer = this.userTransferPublished.length;
 				this.unpublishedTransfer = this.usersTransferPrescription.length - this.userTransferPublished.length;
-				console.log(this.unpublishedTransfer);
-				console.log(this.publishedTransfer);
 			})
 	};
-
-	countTransferRequest(flag) {
-		if (flag === null) {
-			return this.usersTransferPrescription.length;
-		}
-	}
-
 	// refill request ***************
 
 	getRefillList(): void{
 		this.refillService.getAll().subscribe(
 			(res: UserRefill[]) => {
 				this.usersRefill = res;
+				this.usersRefillLen = this.usersRefill.length;
 			},
 			(err) => {
 				this.error = err;
@@ -88,8 +84,6 @@ export class DashboardComponent implements OnInit {
 				this.userRefillPublished = res;
 				this.publishedRefill = this.userRefillPublished.length;
 				this.unpublishedRefill = this.usersRefill.length - this.userRefillPublished.length;
-				console.log(this.unpublishedRefill);
-				console.log(this.publishedRefill);
 			})
 	};
 
@@ -105,6 +99,7 @@ export class DashboardComponent implements OnInit {
 		this.priceService.getAll().subscribe(
 			(res: UserPriceCheck[]) => {
 				this.usersPriceCheck = res;
+				this.usersPriceLen = this.usersPriceCheck.length;
 			},
 			(err) => {
 				this.error = err;
@@ -118,8 +113,6 @@ export class DashboardComponent implements OnInit {
 				this.userPricePublished = res;
 				this.publishedPrice = this.userPricePublished.length;
 				this.unpublishedPrice = this.usersPriceCheck.length - this.userPricePublished.length;
-				console.log(this.unpublishedPrice);
-				console.log(this.publishedPrice);
 			})
 	}
 

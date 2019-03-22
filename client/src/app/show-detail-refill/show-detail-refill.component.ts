@@ -7,6 +7,8 @@ import {PriceService} from '../price.service';
 import {RefillService} from '../refill.service';
 import {TransferService} from '../transfer.service';
 import {AppComponent} from '../app.component';
+import Swal from 'sweetalert2';
+
 
 @Component({
 	selector: 'app-show-detail-refill',
@@ -28,18 +30,20 @@ export class ShowDetailRefillComponent implements OnInit {
 		this.refillService
 		.getUserRefillRequest(id)
 		.subscribe(price =>{
-			console.log(price);
 			this.refill = price[0];
-			console.log(this.refill);
 		})
 	}
 
 	status(refill_id, status){
-		console.log(refill_id + status);
 		this.refillService
 		.updateStatus(refill_id, status)
 		.subscribe(()=>{
 			this.getSingleEmployee();
+			if(status==1){
+				Swal.fire("", "Successfully Unpublished", "success")
+			}else{
+				Swal.fire("", "Successfully Published", "success")
+			}
 		});
 	}
 }

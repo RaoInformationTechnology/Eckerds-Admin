@@ -1,6 +1,6 @@
 <div class="content">
 	<div class="container-fluid">
-		<h4>Select Location: </h4>
+		<h4>Please Select Location: </h4>
 		<div class="row">
 			<div class="col-md-6">
 				<select (change)="selectChangeHandler($event)" class="custom-select" ng-model="selectedLocation">
@@ -12,7 +12,7 @@
 			</div>
 		</div>
 		<div *ngIf="!selectedLocation">
-			<h3>Please choose a location</h3>
+			<h3></h3>
 		</div>
 		<div *ngIf="selectedLocation">
 			<h4 style="margin-top: 40px; font-weight: bolder;">Results for:- {{selectedLocation}}</h4>

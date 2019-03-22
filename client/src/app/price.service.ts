@@ -14,7 +14,6 @@ import {config} from './config';
 export class PriceService {
 
 	private handleError(error: HttpErrorResponse) {
-		console.log(error);
 		return throwError('Error! something went wrong.');
 	}
 
@@ -23,7 +22,7 @@ export class PriceService {
 
 	constructor(private http: HttpClient) { }
 
-	getAll(): Observable<UserPriceCheck[]> {
+	getAll (): Observable<UserPriceCheck[]> {
 		return this.http.get(config.baseApiUrl + `price.php`).pipe(
 			map((res) => {
 				this.users = res['data'];
@@ -42,10 +41,8 @@ export class PriceService {
 	}
 
 	filterPriceByLocation(filteredLocation){
-		console.log(filteredLocation);
 		return this.http.post(config.baseApiUrl +`priceFilter.php` , {'location': filteredLocation}).pipe(
 			map((res) => {
-				console.log(res);
 				return res;
 			}));
 	}
@@ -54,14 +51,12 @@ export class PriceService {
 		return this.http.post(config.baseApiUrl +`selectOnePrice.php`,{'id':id}).pipe(
 		map((res)=>{
 			 return res;
-			 console.log(res);
 		}));
 	}
 
 	updateStatus(pc_id, status){
 		return this.http.post(config.baseApiUrl +  `statusPrice.php`, {'pc_id':pc_id, 'status': status}).pipe(
 			map((res)=>{
-				console.log('hello');
 			}));
 	}
 
@@ -73,5 +68,4 @@ export class PriceService {
 			}),
 			catchError(this.handleError));
 	}
-
 }

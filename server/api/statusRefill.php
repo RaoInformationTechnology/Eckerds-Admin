@@ -1,11 +1,11 @@
 <?php
 require "connect.php";
 $data = json_decode(file_get_contents("php://input"));
-if($data->status == 'unpublished'){
-	$sql = "UPDATE refillprescription SET isPublished = 'published' WHERE refill_id = $data->refill_id ";
+if($data->status == 0){
+	$sql = "UPDATE refillprescription SET isPublish = 1 WHERE refill_id = $data->refill_id ";
 	$result = $con->query($sql);
 }else{
-	$sql = "UPDATE refillprescription SET isPublished = 'unpublished' WHERE refill_id = $data->refill_id ";
+	$sql = "UPDATE refillprescription SET isPublish = 0 WHERE refill_id = $data->refill_id ";
 	$result = $con->query($sql);
 }
 ?>

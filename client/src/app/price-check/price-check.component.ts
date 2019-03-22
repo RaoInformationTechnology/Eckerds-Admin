@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {UserPriceCheck} from './priceCheck';
 import {PriceService} from '../price.service';
 import {Router,Params} from '@angular/router';
+import Swal from 'sweetalert2';
+import { ToastrService } from 'ngx-toastr';  
 
 
 @Component({
@@ -16,9 +18,8 @@ export class PriceCheckComponent implements OnInit {
   success = '';
   priceRequest: any;
   userFilter: UserPriceCheck = {location: ''};
-  
 
-  constructor(private priceService: PriceService,  private router: Router) { }
+  constructor(private priceService: PriceService,  private router: Router,private toastr: ToastrService) { }
 
   ngOnInit() {
   	this.getPriceCheck();
@@ -49,6 +50,13 @@ export class PriceCheckComponent implements OnInit {
     .updateStatus(pc_id, status)
     .subscribe(()=>{
       this.getPriceCheck();
+      if(status==1){
+        Swal.fire("", "Successfully Unpublished", "success")
+        // this.toastr.success("Successfully Unpublished!")
+      }else{
+        Swal.fire("", "Successfully Published", "success")
+        // this.toastr.success("Successfully Published!")
+      }
     });
   }
 }

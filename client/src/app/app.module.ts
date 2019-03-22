@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, enableProdMode } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +21,7 @@ import { ShowDetailTransferComponent } from './show-detail-transfer/show-detail-
 import { ShowDetailRefillComponent } from './show-detail-refill/show-detail-refill.component';
 import { ShowDetailPriceComponent } from './show-detail-price/show-detail-price.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import Swal from 'sweetalert2';
 
 
 
@@ -43,7 +46,11 @@ import {NgxPaginationModule} from 'ngx-pagination';
   HttpClientModule,
   FormsModule,
   FilterPipeModule,
-  NgxPaginationModule
+  NgxPaginationModule,
+  BrowserAnimationsModule,
+  ToastrModule.forRoot({
+    timeOut: 1000,
+  })
   ],
   providers: [LoginService,AuthGuard],
   bootstrap: [AppComponent]
