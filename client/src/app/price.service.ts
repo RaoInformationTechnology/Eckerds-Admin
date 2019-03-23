@@ -49,9 +49,9 @@ export class PriceService {
 
 	getUserPriceRequest(id){
 		return this.http.post(config.baseApiUrl +`selectOnePrice.php`,{'id':id}).pipe(
-		map((res)=>{
-			 return res;
-		}));
+			map((res)=>{
+				return res;
+			}));
 	}
 
 	updateStatus(pc_id, status){
@@ -67,5 +67,15 @@ export class PriceService {
 				return this.users;
 			}),
 			catchError(this.handleError));
+	}
+
+	getPriceUnPublished(){
+		return this.http.get(config.baseApiUrl + `priceUnPublished.php`).pipe(
+			map((res) => {
+				this.users = res['data'];
+				return this.users;
+			}),
+			catchError(this.handleError));
+
 	}
 }

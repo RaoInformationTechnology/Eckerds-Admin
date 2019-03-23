@@ -1,178 +1,536 @@
 <div class="container-fluid">
-	<!-- <div class="custom-control custom-radio">
-		<input type="radio" class="custom-control-input" id="defaultChecked2" name="defaultExample2" checked>
-		<label class="custom-control-label" for="defaultChecked2">Default checked</label>
-	</div>	
-
-	<div class="custom-control custom-radio">
-		<input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExample2">
-		<label class="custom-control-label" for="defaultChecked">Default checked</label>
-	</div> -->
 	<div class="row">
-		<div class="col-md-3">
-		</div>
-		<div class="col-md-6">
-			<div class="input-group no-border">
-				<input type="text" class="form-control" [(ngModel)]="userFilter.location" placeholder="Filter by Location...">
-				<button type="submit" class="btn btn-white btn-round btn-just-icon">
-					<i class="material-icons">search</i>
-					<div class="ripple-container"></div>
-				</button>
-			</div>
-		</div>
+
 		<div class="col-md-12">
-			<div class="card">
-				<div class="card-header card-header-primary">
-					<h4 class="card-title ">Price Check Requests</h4>
-				</div>
-				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table">
-							<thead class=" text-primary">
-								<th style="display: none;"  >
-									Id
-								</th>
-								<th>
-									Name
-								</th>
-								<th>
-									Email
-								</th>
-								<th>
-									Location
-								</th>
-								<th>
-									Details
-								</th>
-							</thead>
-							<tbody>
-								<tr *ngFor="let user of usersPriceCheck | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:p, id:'ppage'}">
-									<td style="display: none;">
-										{{user.pc_id}}
-									</td>
-									<td>
-										{{user.name}}
-									</td>
-									<td>
-										{{user.email}}
-									</td>
-									<td>
-										{{user.location}}
-									</td>
-									<td class="text-primary">
-										<a routerLink="/showDetailPrice/{{user.pc_id}}">View Details</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<div align="Center"> 
-							<pagination-controls id="ppage" (pageChange)="p=$event"></pagination-controls>
+			<div data-tabs class="tabs">    
+				<div class="tab">
+					<input type="radio" name="tabgroup" id="tab-1" (click)="allRecords()" checked>
+					<label for="tab-1">All Records</label>
+					<div class="tab__content">
+						<div class="card" id="allRecords">
+							<div class="card-header card-header-primary">
+								<h4 class="card-title ">Price Check Requests</h4>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class=" text-primary">
+											<th style="display: none;"  >
+												Id
+											</th>
+											<th>
+												Name
+											</th>
+											<th>
+												Email
+											</th>
+											<th>
+												Location
+											</th>
+											<th>
+												Details
+											</th>
+										</thead>
+										<tbody id="showallRecords">
+											<tr *ngFor="let user of usersPriceCheck | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:p1, id:'allpricepage'}"	>
+												<td style="display: none;">
+													{{user.pc_id}}
+												</td>
+												<td>
+													{{user.name}}
+												</td>
+												<td>
+													{{user.email}}
+												</td>
+												<td>
+													{{user.location}}
+												</td>
+												<td class="text-primary">
+													<a routerLink="/showDetailPrice/{{user.pc_id}}">View Details</a>
+												</td>
+											</tr>
+											<tr *ngIf="usersPriceCheck.length == 0">
+												<td colspan="5" class="text-center">
+													<h5> No Records </h5>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div align="Center"> 
+										<pagination-controls id="allpricepage" (pageChange)="p1=$event"></pagination-controls>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="card">
-				<div class="card-header card-header-primary">
-					<h4 class="card-title">Refill Prescription Requests</h4>
-				</div>
-				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table">
-							<thead class=" text-primary">
-								<th style="display: none;">
-									Id
-								</th>
-								<th>
-									Name
-								</th>
-								<th>
-									Email
-								</th>
-								<th>
-									Location
-								</th>
-								<th>
-									Details
-								</th>
-							</thead>
-							<tbody>
-								<tr *ngFor="let user of usersRefill | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:r, id:'rpage'}">
-									<td style="display: none;">
-										{{user.refill_id}}
-									</td>
-									<td>
-										{{user.name}}
-									</td>
-									<td>
-										{{user.email}}
-									</td>
-									<td>
-										{{user.location}}
-									</td>
-									<td class="text-primary">
-										<a routerLink="/showDetailRefill/{{user.refill_id}}">View Details</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<div align="Center"> 
-							<pagination-controls id="rpage" (pageChange)="r=$event"></pagination-controls>
+						<div class="card">
+							<div class="card-header card-header-primary">
+								<h4 class="card-title">Refill Prescription Requests</h4>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class=" text-primary">
+											<th style="display: none;">
+												Id
+											</th>
+											<th>
+												Name
+											</th>
+											<th>
+												Email
+											</th>
+											<th>
+												Location
+											</th>
+											<th>
+												Details
+											</th>
+										</thead>
+										<tbody id="showallRecords">
+											<tr *ngFor="let user of usersRefill | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:r1, id:'allrpage'}">
+												<td style="display: none;">
+													{{user.refill_id}}
+												</td>
+												<td>
+													{{user.name}}
+												</td>
+												<td>
+													{{user.email}}
+												</td>
+												<td>
+													{{user.location}}
+												</td>
+												<td class="text-primary">
+													<a routerLink="/showDetailRefill/{{user.refill_id}}">View Details</a>
+												</td>
+											</tr>
+											<tr *ngIf="usersRefill.length == 0">
+												<td colspan="5" class="text-center">
+													<h5> No Records </h5>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div align="Center"> 
+										<pagination-controls id="allrpage" (pageChange)="r1=$event"></pagination-controls>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="card">
-				<div class="card-header card-header-primary">
-					<h4 class="card-title ">Transfer Prescription Requests</h4>
+						<div class="card">
+							<div class="card-header card-header-primary">
+								<h4 class="card-title ">Transfer Prescription Requests</h4>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class=" text-primary">
+											<th style="display: none;"  >
+												Id
+											</th>
+											<th>
+												Name
+											</th>
+											<th>
+												Email
+											</th>
+											<th>
+												Location
+											</th>
+											<th>
+												Details
+											</th>
+										</thead>
+										<tbody id="showallRecords">
+											<tr *ngFor="let user of usersTransferPrescription | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:t1, id:'alltpage'}">
+												<td style="display: none;">
+													{{user.tp_id}}
+												</td>
+												<td>
+													{{user.name}}
+												</td>
+												<td>
+													{{user.email}}
+												</td>
+												<td>
+													{{user.location}}
+												</td>
+												<td class="text-primary">
+													<a routerLink="/showDetailTransfer/{{user.tp_id}}">View Details</a>
+												</td>
+											</tr>
+											<tr *ngIf="usersTransferPrescription.length == 0">
+												<td colspan="5" class="text-center">
+													<h5> No Records </h5>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div align="Center"> 
+										<pagination-controls (pageChange)="t1=$event" id="alltpage"></pagination-controls>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> 
 				</div>
-				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table">
-							<thead class=" text-primary">
-								<th style="display: none;"  >
-									Id
-								</th>
-								<th>
-									Name
-								</th>
-								<th>
-									Email
-								</th>
-								<th>
-									Location
-								</th>
-								<th>
-									Details
-								</th>
-							</thead>
-							<tbody>
-								<tr *ngFor="let user of usersTransferPrescription | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:t, id:'tpage'}">
-									<td style="display: none;">
-										{{user.tp_id}}
-									</td>
-									<td>
-										{{user.name}}
-									</td>
-									<td>
-										{{user.email}}
-									</td>
-									<td>
-										{{user.location}}
-									</td>
-									<td class="text-primary">
-										<a routerLink="/showDetailTransfer/{{user.tp_id}}">View Details</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<div align="Center"> 
-							<pagination-controls (pageChange)="t=$event" id="tpage"></pagination-controls>
+				<div class="tab">
+					<input type="radio" name="tabgroup" id="tab-2" (click)="published()">
+					<label for="tab-2">Published</label>
+					<div class="tab__content">
+						<div class="card" id="allRecords">
+							<div class="card-header card-header-primary">
+								<h4 class="card-title ">Price Check Requests</h4>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class=" text-primary">
+											<th style="display: none;"  >
+												Id
+											</th>
+											<th>
+												Name
+											</th>
+											<th>
+												Email
+											</th>
+											<th>
+												Location
+											</th>
+											<th>
+												Details
+											</th>
+										</thead>
+										<tbody>
+											<tr *ngFor="let pprice of publishedPrice | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:p2, id:'publishppage'}"	>
+												<td style="display: none;">
+													{{pprice.pc_id}}
+												</td>
+												<td>
+													{{pprice.name}}
+												</td>
+												<td>
+													{{pprice.email}}
+												</td>
+												<td>
+													{{pprice.location}}
+												</td>
+												<td class="text-primary">
+													<a routerLink="/showDetailPrice/{{pprice.pc_id}}">View Details</a>
+												</td>
+											</tr>
+											<tr *ngIf="publishedPrice.length == 0">
+												<td colspan="5" class="text-center">
+													<h5> No Records </h5>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div align="Center"> 
+										<pagination-controls id="publishppage" (pageChange)="p2=$event"></pagination-controls>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header card-header-primary">
+								<h4 class="card-title">Refill Prescription Requests</h4>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class=" text-primary">
+											<th style="display: none;">
+												Id
+											</th>
+											<th>
+												Name
+											</th>
+											<th>
+												Email
+											</th>
+											<th>
+												Location
+											</th>
+											<th>
+												Details
+											</th>
+										</thead>
+										<tbody id="showallRecords">
+											<tr *ngFor="let prrefill of publishedRefill | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:r2, id:'publishrpage'}">
+												<td style="display: none;">
+													{{prrefill.refill_id}}
+												</td>
+												<td>
+													{{prrefill.name}}
+												</td>
+												<td>
+													{{prrefill.email}}
+												</td>
+												<td>
+													{{prrefill.location}}
+												</td>
+												<td class="text-primary">
+													<a routerLink="/showDetailRefill/{{prrefill.refill_id}}">View Details</a>
+												</td>
+											</tr>
+											<tr *ngIf="publishedRefill.length == 0">
+												<td colspan="5" class="text-center">
+													<h5> No Records </h5>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div align="Center"> 
+										<pagination-controls id="publishrpage" (pageChange)="r2=$event"></pagination-controls>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header card-header-primary">
+								<h4 class="card-title ">Transfer Prescription Requests</h4>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class=" text-primary">
+											<th style="display: none;"  >
+												Id
+											</th>
+											<th>
+												Name
+											</th>
+											<th>
+												Email
+											</th>
+											<th>
+												Location
+											</th>
+											<th>
+												Details
+											</th>
+										</thead>
+										<tbody id="showallRecords">
+											<tr *ngFor="let user of publishedTransfer | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:t2, id:'publishtpage'}">
+												<td style="display: none;">
+													{{user.tp_id}}
+												</td>
+												<td>
+													{{user.name}}
+												</td>
+												<td>
+													{{user.email}}
+												</td>
+												<td>
+													{{user.location}}
+												</td>
+												<td class="text-primary">
+													<a routerLink="/showDetailTransfer/{{user.tp_id}}">View Details</a>
+												</td>
+											</tr>
+											<tr *ngIf="publishedTransfer.length == 0">
+												<td colspan="5" class="text-center">
+													<h5> No Records </h5>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div align="Center"> 
+										<pagination-controls (pageChange)="t2=$event" id="publishtpage"></pagination-controls>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>  
+				</div>
+				<div class="tab">
+					<input type="radio" name="tabgroup" id="tab-3" (click)="unpublished()">
+					<label for="tab-3">UnPublished</label>
+					<div class="tab__content">
+						<div class="card" id="allRecords">
+							<div class="card-header card-header-primary">
+								<h4 class="card-title ">Price Check Requests</h4>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class=" text-primary">
+											<th style="display: none;"  >
+												Id
+											</th>
+											<th>
+												Name
+											</th>
+											<th>
+												Email
+											</th>
+											<th>
+												Location
+											</th>
+											<th>
+												Details
+											</th>
+										</thead>
+										<tbody id="showallRecords">
+											<tr *ngFor="let user of unpublishedPrice | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:p3, id:'unpublishppage'}"	>
+												<td style="display: none;">
+													{{user.pc_id}}
+												</td>
+												<td>
+													{{user.name}}
+												</td>
+												<td>
+													{{user.email}}
+												</td>
+												<td>
+													{{user.location}}
+												</td>
+												<td class="text-primary">
+													<a routerLink="/showDetailPrice/{{user.pc_id}}">View Details</a>
+												</td>
+											</tr>
+											<tr *ngIf="unpublishedPrice.length == 0">
+												<td colspan="5" class="text-center">
+													<h5> No Records </h5>
+												</td>
+											</tr>
+										</tbody>
+										
+
+										
+									</table>
+									<div align="Center"> 
+										<pagination-controls id="unpublishppage" (pageChange)="p3=$event"></pagination-controls>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header card-header-primary">
+								<h4 class="card-title">Refill Prescription Requests</h4>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class=" text-primary">
+											<th style="display: none;">
+												Id
+											</th>
+											<th>
+												Name
+											</th>
+											<th>
+												Email
+											</th>
+											<th>
+												Location
+											</th>
+											<th>
+												Details
+											</th>
+										</thead>
+										<tbody id="showallRecords">
+											<tr *ngFor="let user of unpublishedRefill | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:r3, id:'unpublishrpage'}">
+												<td style="display: none;">
+													{{user.refill_id}}
+												</td>
+												<td>
+													{{user.name}}
+												</td>
+												<td>
+													{{user.email}}
+												</td>
+												<td>
+													{{user.location}}
+												</td>
+												<td class="text-primary">
+													<a routerLink="/showDetailRefill/{{user.refill_id}}">View Details</a>
+												</td>
+											</tr>
+											<tr *ngIf="unpublishedRefill.length == 0">
+												<td colspan="5" class="text-center">
+													<h5> No Records </h5>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div align="Center"> 
+										<pagination-controls id="unpublishrpage" (pageChange)="r3=$event"></pagination-controls>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header card-header-primary">
+								<h4 class="card-title ">Transfer Prescription Requests</h4>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class=" text-primary">
+											<th style="display: none;"  >
+												Id
+											</th>
+											<th>
+												Name
+											</th>
+											<th>
+												Email
+											</th>
+											<th>
+												Location
+											</th>
+											<th>
+												Details
+											</th>
+										</thead>
+										<tbody id="showallRecords">
+											<tr *ngFor="let user of unpublishedTransfer | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:t3, id:'unpublishtpage'}">
+												<td style="display: none;">
+													{{user.tp_id}}
+												</td>
+												<td>
+													{{user.name}}
+												</td>
+												<td>
+													{{user.email}}
+												</td>
+												<td>
+													{{user.location}}
+												</td>
+												<td class="text-primary">
+													<a routerLink="/showDetailTransfer/{{user.tp_id}}">View Details</a>
+												</td>
+											</tr>
+											<tr *ngIf="unpublishedTransfer.length == 0">
+												<td colspan="5" class="text-center">
+													<h5> No Records </h5>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div align="Center"> 
+										<pagination-controls (pageChange)="t3=$event" id="unpublishtpage"></pagination-controls>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
+
+				<!-- <div class="tab searchTab">
+					<input type="text" class="form-control" [(ngModel)]="userFilter.location" placeholder="Search by Location...">
+				</div> -->
 			</div>
 		</div>
 	</div>
 </div>
+

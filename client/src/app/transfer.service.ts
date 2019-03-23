@@ -69,4 +69,14 @@ export class TransferService {
 
 	}
 
+	getTransferUnPublished(){
+		return this.http.get(config.baseApiUrl + `transferUnPublished.php`).pipe(
+			map((res) => {
+				this.users = res['data'];
+				return this.users;
+			}),
+			catchError(this.handleError));
+
+	}
+
 }

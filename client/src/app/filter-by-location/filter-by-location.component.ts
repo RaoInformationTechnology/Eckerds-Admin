@@ -20,7 +20,7 @@ export class FilterByLocationComponent implements OnInit {
 	usersRefillRequest :  UserRefill[] = [];
 	error = '';
 	totalLocation =  [{location: 'Wauchula'},{location: 'Palmetto'},{location: 'Bradenton'},{location: 'Apollo Beach'},
-				{location: 'New Port Beach'},{location: 'New Port Richey'},{location: 'Lake Jackson'},{location: 'West Bradenton'}];
+	{location: 'New Port Beach'},{location: 'New Port Richey'},{location: 'Lake Jackson'},{location: 'West Bradenton'}];
 
 	constructor(private priceService: PriceService,  private router: Router, private transferService: TransferService, private refillService: RefillService) { }
 

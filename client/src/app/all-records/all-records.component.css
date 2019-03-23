@@ -1,3 +1,52 @@
-.form-control[_ngcontent-c1], .is-focused[_ngcontent-c1] .form-control[_ngcontent-c1] {
-    background-image: linear-gradient(to top, #9c27b0 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #9B2CA9 1px, rgba(210, 210, 210, 0) 1px);
+
+
+.tabs {
+	clear: both;
+	position: relative; 
+	/* you can either manually set a min-height here or do it via JS ---> */
+}
+
+.tab {
+	float: left;
+}
+
+.tab label {
+	margin-right: 20px;
+	position: relative;
+	top: 0;
+	cursor: pointer;
+	color: #333;
+}
+
+.tab [type=radio] {
+	display: none;   
+}
+
+.tab__content {
+	position: relative;
+	top: 40px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: all 0.5s ;
+	opacity: 0;
+}
+
+[type=radio]:checked ~ label {
+	color: #1d1d1d;
+	z-index: 2;
+}
+
+[type=radio]:checked ~ label ~ .tab__content {
+	z-index: 1;
+	opacity: 1;
+}
+
+.form-control {
+	height: 22px;
+	width: 150px;
+}
+
+.searchTab{
+	float: right;
 }

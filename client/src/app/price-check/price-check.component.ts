@@ -52,10 +52,8 @@ export class PriceCheckComponent implements OnInit {
       this.getPriceCheck();
       if(status==1){
         Swal.fire("", "Successfully Unpublished", "success")
-        // this.toastr.success("Successfully Unpublished!")
       }else{
         Swal.fire("", "Successfully Published", "success")
-        // this.toastr.success("Successfully Published!")
       }
     });
   }
