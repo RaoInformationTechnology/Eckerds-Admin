@@ -49,7 +49,7 @@ export class AllRecordsComponent implements OnInit {
 		this.priceService.getAll().subscribe(
 			(res: UserPriceCheck[]) => {
 				this.usersPriceCheck = res;
-				console.log("all price" , this.usersPriceCheck);
+
 			},
 			(err) => {
 				this.error = err;
@@ -58,7 +58,7 @@ export class AllRecordsComponent implements OnInit {
 		this.transferService.getAll().subscribe(
 			(res: UserTransferPrescription[]) => {
 				this.usersTransferPrescription = res;
-				console.log("all transfer" , this.usersTransferPrescription);
+
 			},
 			(err) => {
 				this.error = err;
@@ -67,7 +67,7 @@ export class AllRecordsComponent implements OnInit {
 		this.refillService.getAll().subscribe(
 			(res: UserRefill[]) => {
 				this.usersRefill = res;
-				console.log("all refill" , this.usersRefill);
+
 			},
 			(err) => {
 				this.error = err;
@@ -78,7 +78,7 @@ export class AllRecordsComponent implements OnInit {
 		this.priceService.getPricePublished().subscribe(
 			(res) => {
 				this.publishedPrice = res;
-				console.log("published price" , this.publishedPrice);
+
 
 			},
 			(err) => {
@@ -88,7 +88,7 @@ export class AllRecordsComponent implements OnInit {
 		this.transferService.getTransferPublished().subscribe(
 			(res) => {
 				this.publishedTransfer = res;
-				console.log("published transfer" , this.publishedTransfer);
+
 			},
 			(err) => {
 				this.error = err;
@@ -97,7 +97,7 @@ export class AllRecordsComponent implements OnInit {
 		this.refillService.getRefillPublished().subscribe(
 			(res) => {
 				this.publishedRefill = res;
-				console.log("published refill" , this.publishedRefill);
+
 			},
 			(err) => {
 				this.error = err;
@@ -108,7 +108,7 @@ export class AllRecordsComponent implements OnInit {
 		this.priceService.getPriceUnPublished().subscribe(
 			(res) => {
 				this.unpublishedPrice = res;
-				console.log("unpublished price" , this.unpublishedPrice);
+
 			},
 			(err) => {
 				this.error = err;
@@ -117,7 +117,7 @@ export class AllRecordsComponent implements OnInit {
 		this.transferService.getTransferUnPublished().subscribe(
 			(res) => {	
 				this.unpublishedTransfer = res;
-				console.log("unpublished transfer" , this.unpublishedTransfer);
+
 			},
 			(err) => {
 				this.error = err;
@@ -126,7 +126,7 @@ export class AllRecordsComponent implements OnInit {
 		this.refillService.getRefillUnPublished().subscribe(
 			(res) => {
 				this.unpublishedRefill = res;
-				console.log("unpublished refill" , this.unpublishedRefill);
+
 			},
 			(err) => {
 				this.error = err;

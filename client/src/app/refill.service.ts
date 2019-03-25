@@ -19,6 +19,7 @@ export class RefillService {
 		return throwError('Error! something went wrong.');
 	}
 	users: UserRefill[];
+	dateRefill: any = [];
 
 	constructor(private http: HttpClient) { }
 
@@ -74,6 +75,15 @@ export class RefillService {
 			map((res) => {
 				this.users = res['data'];
 				return this.users;
+			}),
+			catchError(this.handleError));
+	}
+
+	getRecordsDate(){
+		return this.http.get(config.baseApiUrl + `monthRecordsRefill.php`).pipe(
+			map((res) =>{
+				this.dateRefill = res['data'];
+				return this.dateRefill;
 			}),
 			catchError(this.handleError));
 	}

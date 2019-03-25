@@ -13,7 +13,7 @@
           </div>
           <p class="card-category">Refilling Request</p>
           <h3 class="card-title">{{usersRefillLen}}</h3>
-          <!-- <p class="card-category">Unpublished: {{unpublishedRefill}}</p>  -->
+          <p class="card-category">Unpublished: {{unpublishedRefill}}</p> 
         </div>
         <div class="card-footer">
           <div class="stats">
@@ -30,7 +30,7 @@
           </div>
           <p class="card-category">Transfer Request</p>
           <h3 class="card-title">{{usersTransferLen}}</h3>
-          <!-- <p class="card-category">Unpublished: {{unpublishedTransfer}}</p>-->
+           <p class="card-category">Unpublished: {{unpublishedTransfer}}</p>
         </div>
         <div class="card-footer">
           <div class="stats">
@@ -47,12 +47,23 @@
           </div>
           <p class="card-category">Price Check Request</p>
           <h3 class="card-title">{{usersPriceLen}}</h3>
-          <!-- <p class="card-category">Unpublished: {{unpublishedPrice}}</p> -->
+          <p class="card-category">Unpublished: {{unpublishedPrice}}</p>
         </div>
         <div class="card-footer">
           <div class="stats">
             <a href="" routerLink="/price">View Details</a>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card card-chart">
+        <div class=" card-header-success">
+          <canvas #canvas id="canvas">{{ chart }}</canvas>
+        </div>
+        <div class="card-body">
+            <h4 class="card-category card-title">Month vs No. of Requests(2019)</h4>
         </div>
       </div>
     </div>

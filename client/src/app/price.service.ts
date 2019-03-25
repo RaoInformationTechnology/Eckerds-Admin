@@ -18,6 +18,7 @@ export class PriceService {
 	}
 
 	users: UserPriceCheck[];
+	datePrice: any;
 	res : any;
 
 	constructor(private http: HttpClient) { }
@@ -77,5 +78,14 @@ export class PriceService {
 			}),
 			catchError(this.handleError));
 
+	}
+
+	getRecordsDate(){
+		return this.http.get(config.baseApiUrl + `monthRecordsPrice.php`).pipe(
+			map((res) =>{
+				this.datePrice = res['data'];
+				return this.datePrice;
+			}),
+			catchError(this.handleError));
 	}
 }

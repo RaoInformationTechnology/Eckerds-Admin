@@ -47,6 +47,18 @@
 	width: 150px;
 }
 
+label{
+	font-weight: 500;
+}
 .searchTab{
 	float: right;
+}
+
+.search { position: relative; }
+.search input { text-indent: 30px;}
+.search .fa-search { 
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  font-size: 15px;
 }
