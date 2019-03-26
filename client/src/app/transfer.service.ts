@@ -19,6 +19,7 @@ export class TransferService {
 
 	users: UserTransferPrescription[];
 	dateTransfer: any = [];
+	locationTransfer: any = [];
 
 	constructor(private http: HttpClient) { }
 
@@ -87,6 +88,15 @@ export class TransferService {
 				return this.dateTransfer;
 			}),
 			catchError(this.handleError));
+	}
+
+	getRecordsLocation(){
+		return this.http.get(config.baseApiUrl + `locationRecordsTransfer.php`).pipe(
+		map((res)=>{
+			this.locationTransfer = res['data'];
+			return this.locationTransfer;
+		}),
+		catchError(this.handleError));
 	}
 
 }

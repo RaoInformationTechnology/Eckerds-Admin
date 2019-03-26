@@ -22,7 +22,6 @@ if($result = mysqli_query($con,$sql))
     $users[$cr]['createdAt']    = $row['createdAt'];
     $cr++;
   }
-    
   echo json_encode(['data'=>$users]);
 }
 else

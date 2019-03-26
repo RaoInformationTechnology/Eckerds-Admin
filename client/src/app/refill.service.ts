@@ -20,6 +20,7 @@ export class RefillService {
 	}
 	users: UserRefill[];
 	dateRefill: any = [];
+	locationRefill: any = [];
 
 	constructor(private http: HttpClient) { }
 
@@ -86,6 +87,15 @@ export class RefillService {
 				return this.dateRefill;
 			}),
 			catchError(this.handleError));
+	}
+
+	getRecordsLocation(){
+		return this.http.get(config.baseApiUrl + `locationRecordsRefill.php`).pipe(
+		map((res)=>{
+			this.locationRefill = res['data'];
+			return this.locationRefill;
+		}),
+		catchError(this.handleError));
 	}
 
 }

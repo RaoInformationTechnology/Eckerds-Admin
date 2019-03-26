@@ -24,13 +24,13 @@
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6">
       <div class="card card-stats">
-        <div class="card-header card-header-success card-header-icon">
+        <div class="card-header card-header-danger card-header-icon">
           <div class="card-icon">
             <i class="material-icons">import_export</i>
           </div>
           <p class="card-category">Transfer Request</p>
           <h3 class="card-title">{{usersTransferLen}}</h3>
-           <p class="card-category">Unpublished: {{unpublishedTransfer}}</p>
+          <p class="card-category">Unpublished: {{unpublishedTransfer}}</p>
         </div>
         <div class="card-footer">
           <div class="stats">
@@ -56,14 +56,38 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="col-md-6">
-      <div class="card card-chart">
-        <div class=" card-header-success">
-          <canvas #canvas id="canvas">{{ chart }}</canvas>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card card-stats card-chart">
+        <div class=" card-header-warning">
+          <canvas #canvas1 id="canvas1" width="600" height="500">{{ chart1 }}</canvas>
         </div>
         <div class="card-body">
-            <h4 class="card-category card-title">Month vs No. of Requests(2019)</h4>
+          <h4 class="card-category card-title">All Request Types is to from to Months(2019)</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card card-chart">
+        <div class=" card-header-danger">
+          <canvas #canvas2 id="canvas2" width="600" height="500">{{ chart2 }}</canvas>
+        </div>
+        <div class="card-body">
+          <h4 class="card-category card-title">Total Request is to from to Months(2019)</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card card-chart">
+        <div class="card-header-info">
+          <canvas #canvas3 id="canvas3" width="600" height="500">{{ chart3 }}</canvas>
+        </div>
+        <div class="card-body">
+          <h4 class="card-category card-title">Total Requests for Particular Location(2019)</h4>
         </div>
       </div>
     </div>

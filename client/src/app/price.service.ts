@@ -19,6 +19,7 @@ export class PriceService {
 
 	users: UserPriceCheck[];
 	datePrice: any;
+	locationPrice: any;
 	res : any;
 
 	constructor(private http: HttpClient) { }
@@ -87,5 +88,14 @@ export class PriceService {
 				return this.datePrice;
 			}),
 			catchError(this.handleError));
+	}
+
+	getRecordsLocation(){
+		return this.http.get(config.baseApiUrl + `locationRecordsPrice.php`).pipe(
+		map((res)=>{
+			this.locationPrice = res['data'];
+			return this.locationPrice;
+		}),
+		catchError(this.handleError));
 	}
 }

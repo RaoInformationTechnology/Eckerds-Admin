@@ -10,7 +10,7 @@ unset($records[0]);
 // january *****************
 $users1 = [];
 
-$sql1 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt)  = 01";
+$sql1 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt)  = 01 AND YEAR(createdAt) = 2019";
 
 if($result1 = mysqli_query($con,$sql1))
 {
@@ -28,7 +28,7 @@ if($result1 = mysqli_query($con,$sql1))
 // february *****************
 $users2 = [];
 
-$sql2 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 02";
+$sql2 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 02 AND YEAR(createdAt) = 2019";
 
 if($result2 = mysqli_query($con,$sql2))
 {
@@ -46,7 +46,7 @@ if($result2 = mysqli_query($con,$sql2))
 // march *****************
 $users3 = [];
 
-$sql3 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 03";
+$sql3 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 03 AND YEAR(createdAt) = 2019";
 
 if($result3 = mysqli_query($con,$sql3))
 {
@@ -64,7 +64,7 @@ if($result3 = mysqli_query($con,$sql3))
 // april *****************
 $users4 = [];
 
-$sql4 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 04";
+$sql4 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 04 AND YEAR(createdAt) = 2019";
 
 if($result4 = mysqli_query($con,$sql4))
 {
@@ -82,7 +82,7 @@ if($result4 = mysqli_query($con,$sql4))
 // may *****************
 $users5 = [];
 
-$sql5 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 05";
+$sql5 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 05 AND YEAR(createdAt) = 2019";
 
 if($result5 = mysqli_query($con,$sql5))
 {
@@ -100,9 +100,9 @@ if($result5 = mysqli_query($con,$sql5))
 // june *****************
 $users6 = [];
 
-$sql6 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 06";
+$sql6 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 06 AND YEAR(createdAt) = 2019";
 
-if($result = mysqli_query($con,$sql6))
+if($result6 = mysqli_query($con,$sql6))
 {
   $cr6 = 0;
   while($row6 = mysqli_fetch_assoc($result6))
@@ -118,7 +118,7 @@ if($result = mysqli_query($con,$sql6))
 // july *****************
 $users7 = [];
 
-$sql7 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 07";
+$sql7 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 07 AND YEAR(createdAt) = 2019";
 
 if($result7 = mysqli_query($con,$sql7))
 {
@@ -136,7 +136,7 @@ if($result7 = mysqli_query($con,$sql7))
 // august *****************
 $users8 = [];
 
-$sql8 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 08";
+$sql8 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 08 AND YEAR(createdAt) = 2019";
 
 if($result8 = mysqli_query($con,$sql8))
 {
@@ -154,7 +154,7 @@ if($result8 = mysqli_query($con,$sql8))
 // september *****************
 $users9 = [];
 
-$sql9 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 09";
+$sql9 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 09 AND YEAR(createdAt) = 2019";
 
 if($result9 = mysqli_query($con,$sql9))
 {
@@ -172,7 +172,7 @@ if($result9 = mysqli_query($con,$sql9))
 // october *****************
 $users10 = [];
 
-$sql10 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 10";
+$sql10 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 10 AND YEAR(createdAt) = 2019";
 
 if($result10 = mysqli_query($con,$sql10))
 {
@@ -190,7 +190,7 @@ if($result10 = mysqli_query($con,$sql10))
 // november *****************
 $users11 = [];
 
-$sql11 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 11";
+$sql11 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 11 AND YEAR(createdAt) = 2019";
 
 if($result11  = mysqli_query($con,$sql11 ))
 {
@@ -200,7 +200,7 @@ if($result11  = mysqli_query($con,$sql11 ))
     $users11 [$cr11 ] = $row11 ;
     $cr11 ++;
   }
-  array_push($records, count($users));
+  array_push($records, count($users11));
 }else{
   http_response_code(404);
 }
@@ -208,7 +208,7 @@ if($result11  = mysqli_query($con,$sql11 ))
 // december *****************
 $users12 = [];
 
-$sql12 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 12";
+$sql12 = "SELECT *  FROM  transferprescription WHERE MONTH(createdAt) = 12 AND YEAR(createdAt) = 2019";
 
 if($result12 = mysqli_query($con,$sql12))
 {
@@ -218,7 +218,7 @@ if($result12 = mysqli_query($con,$sql12))
     $users12[$cr12] = $row12;
     $cr12++;
   }
-  array_push($records, count($users));
+  array_push($records, count($users12));
   echo json_encode(['data'=>$records]);
 }else{
   http_response_code(404);

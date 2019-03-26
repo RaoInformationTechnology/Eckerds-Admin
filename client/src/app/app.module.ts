@@ -22,6 +22,7 @@ import { ShowDetailRefillComponent } from './show-detail-refill/show-detail-refi
 import { ShowDetailPriceComponent } from './show-detail-price/show-detail-price.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import Swal from 'sweetalert2';
+import { ChartistModule } from 'ng-chartist';
 
 
 
@@ -48,6 +49,7 @@ import Swal from 'sweetalert2';
   FilterPipeModule,
   NgxPaginationModule,
   BrowserAnimationsModule,
+  ChartistModule,
   ToastrModule.forRoot({
     timeOut: 1000,
   })
