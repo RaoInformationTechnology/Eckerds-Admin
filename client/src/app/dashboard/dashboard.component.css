@@ -6,3 +6,7 @@
 .card-stats .card-body {
      text-align: left; 
 }
+
+agm-map{
+	height: 300px;
+}

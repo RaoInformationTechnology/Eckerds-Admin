@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost/Bhavik/myeckerdsAdmin/server/api/"; 
+const baseUrl = "http://localhost/Bhavik/Projects/myeckerdsAdmin/server/api/"; 
 
 export const config = {
 	baseApiUrl : baseUrl

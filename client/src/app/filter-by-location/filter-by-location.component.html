@@ -1,21 +1,34 @@
 <div class="content">
 	<div class="container-fluid">
-		<h4>Please Select Location: </h4>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6" style="margin-top: 10px">
+				<h4>Please Select Location: </h4>
 				<select (change)="selectChangeHandler($event)" class="custom-select" ng-model="selectedLocation">
 					<option value="">Select Location</option>
 					<option *ngFor="let new of totalLocation">{{new.location}}</option>
 				</select>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 map">
+				<iframe *ngIf="selectedLocation =='Wauchula'" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3537.647070659021!2d-81.81309794985033!3d27.542421739244233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88dce6f75ff24e6b%3A0x29b5470c1f597978!2sEckerds+Pharmacy+%23101!5e0!3m2!1sen!2sin!4v1553683956822" frameborder="0" style="border:0" allowfullscreen></iframe>
+				
+				<iframe *ngIf="selectedLocation =='Palmetto'" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3538.350726583121!2d-82.55654354985079!3d27.520560940199477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c33d5b87c05c7b%3A0xd5bdaae901b48607!2sECKERDS+PHARMACY+%23102!5e0!3m2!1sen!2sin!4v1553685242737" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+				<iframe *ngIf="selectedLocation =='Bradenton'" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.1616499890815!2d-82.61537604985132!3d27.49534774130043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c31702674eb111%3A0xa01d1d4a0616d1b8!2sEckerds+Pharmacy+%23103!5e0!3m2!1sen!2sin!4v1553685408249" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+				<iframe *ngIf="selectedLocation =='Apollo Beach'" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3530.2415072947933!2d-82.39743134984525!3d27.771531829191517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2d9d0de4d2ea1%3A0xc668840e17e19155!2sECKERDS+PHARMACY+%23104!5e0!3m2!1sen!2sin!4v1553685544242" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+				<iframe *ngIf="selectedLocation =='New Port Richey'" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3513.305252794817!2d-82.67935004983354!3d28.28907590620846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c291aab676e465%3A0x7fbd11f07ee3b304!2sEckerds+Pharmacy+%23105!5e0!3m2!1sen!2sin!4v1553685852307" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+				<iframe *ngIf="selectedLocation=='Lake Jackson'" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3488.181609078348!2d-95.45470224981612!3d29.041209172131268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864043a77723bfa9%3A0x8e7e3cdc671449ae!2sEckerds+Pharmacy!5e0!3m2!1sen!2sin!4v1553685939468" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+				<iframe *ngIf="selectedLocation=='West Bradenton'" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.1651767348185!2d-82.61538294985135!3d27.495238041305235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c3170288a1e75d%3A0xece337725862f944!2sEckerds+Pharmacy!5e0!3m2!1sen!2sin!4v1553686020259" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 		<div *ngIf="!selectedLocation">
 			<h3></h3>
 		</div>
 		<div *ngIf="selectedLocation">
-			<h4 style="margin-top: 40px; font-weight: bolder;">Results for:- {{selectedLocation}}</h4>
+			<h4 style="margin-top: 10px; font-weight: bolder;">Results for:- {{selectedLocation}}</h4>
 
 			<div class="row">
 				<div class="col-md-12">
@@ -50,10 +63,10 @@
 									<tbody>
 										<tr *ngIf="usersPriceCheck.length == 0">
 											<td colspan="5" class="text-center">
-												<h2> No Records </h2>
+												<h5> No Records </h5>
 											</td>
 										</tr>
-										<tr *ngFor="let user of usersPriceCheck | filterBy: userFilter">
+										<tr *ngFor="let user of usersPriceCheck | filterBy: userFilter | paginate: {itemsPerPage:5, currentPage:p1, id:'allpricepage'}">
 											<td style="display: none;">
 												{{user.pc_id}}
 											</td>
@@ -72,6 +85,9 @@
 										</tr>
 									</tbody>
 								</table>
+								<div align="Center"> 
+									<pagination-controls id="allpricepage" (pageChange)="p1=$event"></pagination-controls>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -111,10 +127,10 @@
 									<tbody>
 										<tr *ngIf="usersTransferRequest.length == 0">
 											<td colspan="5" class="text-center">
-												<h2> No Records </h2>
+												<h5> No Records </h5>
 											</td>
 										</tr>
-										<tr *ngFor="let user of usersTransferRequest">
+										<tr *ngFor="let user of usersTransferRequest | paginate: {itemsPerPage:5, currentPage:r1, id:'allrpage'}">
 											<td style="display: none;">
 												{{user.tp_id}}
 											</td>
@@ -133,6 +149,9 @@
 										</tr>
 									</tbody>
 								</table>
+								<div align="Center"> 
+									<pagination-controls id="allrpage" (pageChange)="r1=$event"></pagination-controls>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -170,7 +189,12 @@
 										</th>
 									</thead>
 									<tbody>
-										<tr *ngFor="let user of usersRefillRequest">
+										<tr *ngIf="usersRefillRequest.length == 0">
+											<td colspan="5" class="text-center">
+												<h5> No Records </h5>
+											</td>
+										</tr>
+										<tr *ngFor="let user of usersRefillRequest | paginate: {itemsPerPage:5, currentPage:t1, id:'alltpage'}">
 											<td style="display: none;">
 												{{user.refill_id}}
 											</td>
@@ -189,6 +213,9 @@
 										</tr>
 									</tbody>
 								</table>
+								<div align="Center"> 
+									<pagination-controls (pageChange)="t1=$event" id="alltpage"></pagination-controls>
+								</div>
 							</div>
 						</div>
 					</div>

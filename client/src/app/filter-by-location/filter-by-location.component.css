@@ -1,3 +1,15 @@
 .filterBtn{
 	margin: 0 !important;
 }
+
+iframe{
+	height:200px;
+	width:100%;
+}
+.map{
+	margin-top: 10px;	
+}
+
+h5{
+	font-weight: bolder;
+}

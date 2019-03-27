@@ -42,10 +42,10 @@ export class DashboardComponent implements OnInit {
 	chart3 : any =  [];
 	months =  ['Jan','Feb','Mar','Apr',
 	'May','June','July','Aug', 'Sep','Oct', 'Nov','Dec'];
-	totalLocation =  ['Wauchula','Palmetto','Bradenton','Apollo Beach','New Port Beach','New Port Richey','Lake Jackson','West Bradenton'];
+	// totalLocation =  ['Wauchula','Palmetto','Bradenton','Apollo Beach','New Port Beach','New Port Richey','Lake Jackson','West Bradenton'];
+	totalLocation =  ['Wauchula','Palmetto','Bradenton','Apollo Beach','New Port Richey','Lake Jackson','West Bradenton'];
 	// totalLocation = [1,2,3,4,5,6,7,8];
 	totalRequest: any = [];
-
 	constructor(private refillService: RefillService, private transferService: TransferService,  private priceService: PriceService) { 
 	}
 
@@ -58,9 +58,7 @@ export class DashboardComponent implements OnInit {
 		this.getPriceListPublished();
 		this.countDateRecords();
 		this.countLocationRecords();
-		
 	}
-
 
 	// chart function #################
 	allRequestTypesChart(){

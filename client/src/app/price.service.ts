@@ -27,7 +27,9 @@ export class PriceService {
 	getAll (): Observable<UserPriceCheck[]> {
 		return this.http.get(config.baseApiUrl + `price.php`).pipe(
 			map((res) => {
+				// console.log(res);
 				this.users = res['data'];
+				console.log(this.users);
 				return this.users;
 			}),
 			catchError(this.handleError));

@@ -81,22 +81,22 @@ if($result4 = mysqli_query($con,$sql4))
 }
 
 // New Port Beach *****************
-$users5 = [];
+// $users5 = [];
 
-$sql5 = "SELECT *  FROM  refillprescription WHERE location = 'New Port Beach'";
+// $sql5 = "SELECT *  FROM  refillprescription WHERE location = 'New Port Beach'";
 
-if($result5 = mysqli_query($con,$sql5))
-{
-  $cr5 = 0;
-  while($row6 = mysqli_fetch_assoc($result5))
-  { 
-    $users5[$cr5] = $row5;
-    $cr5++;
-  }
-  array_push($records, count($users5));
-}else{
-  http_response_code(404);
-}
+// if($result5 = mysqli_query($con,$sql5))
+// {
+//   $cr5 = 0;
+//   while($row6 = mysqli_fetch_assoc($result5))
+//   { 
+//     $users5[$cr5] = $row5;
+//     $cr5++;
+//   }
+//   array_push($records, count($users5));
+// }else{
+//   http_response_code(404);
+// }
 
 // New Port Richey *****************
 $users6 = [];
