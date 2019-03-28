@@ -11,11 +11,12 @@ import {FilterByLocationComponent} from './filter-by-location/filter-by-location
 import {ShowDetailPriceComponent} from './show-detail-price/show-detail-price.component';
 import {ShowDetailTransferComponent} from './show-detail-transfer/show-detail-transfer.component';
 import {ShowDetailRefillComponent} from './show-detail-refill/show-detail-refill.component';
+import {AddLocationComponent} from './add-location/add-location.component';
 const routes: Routes = [
 {
 	path: '',
 	pathMatch: "full",
-	redirectTo: "login"
+	redirectTo: "dashboard"
 },
 {
 	path: 'dashboard',
@@ -65,7 +66,13 @@ const routes: Routes = [
 	path: 'showDetailRefill/:id',
 	component: ShowDetailRefillComponent,
 	canActivate: [AuthGuard]
-}
+},
+{
+	path: 'addLocation',
+	component: AddLocationComponent,
+	canActivate: [AuthGuard]
+},
+
 ];
 
 @NgModule({

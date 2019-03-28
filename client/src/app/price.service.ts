@@ -24,6 +24,12 @@ export class PriceService {
 
 	constructor(private http: HttpClient) { }
 
+	addLocation(info){
+		console.log(info);
+		return this.http.post(config.baseApiUrl + `addLocation.php`,info).pipe(
+		map(()=>""));
+	}
+
 	getAll (): Observable<UserPriceCheck[]> {
 		return this.http.get(config.baseApiUrl + `price.php`).pipe(
 			map((res) => {
@@ -94,10 +100,10 @@ export class PriceService {
 
 	getRecordsLocation(){
 		return this.http.get(config.baseApiUrl + `locationRecordsPrice.php`).pipe(
-		map((res)=>{
-			this.locationPrice = res['data'];
-			return this.locationPrice;
-		}),
-		catchError(this.handleError));
+			map((res)=>{
+				this.locationPrice = res['data'];
+				return this.locationPrice;
+			}),
+			catchError(this.handleError));
 	}
 }

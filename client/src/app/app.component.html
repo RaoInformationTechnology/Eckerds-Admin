@@ -17,6 +17,12 @@
 					</a>
 				</li>
 				<li class="nav-item ">
+					<a class="nav-link" routerLink="/addLocation" *ngIf="auth.isLoggednIn()">
+						<i class="fa fa-map-marker" aria-hidden="true"></i>
+						<p>Add Location</p>
+					</a>
+				</li>
+				<li class="nav-item ">
 					<a class="nav-link" routerLink="/filterByLocation" *ngIf="auth.isLoggednIn()">
 						<i class="material-icons">filter_list</i>
 						<p>Filter By Location</p>

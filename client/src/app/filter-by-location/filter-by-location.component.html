@@ -8,7 +8,7 @@
 					<option *ngFor="let new of totalLocation">{{new.location}}</option>
 				</select>
 			</div>
-			<div class="col-md-6 map">
+			<!-- <div class="col-md-6 map">
 				<iframe *ngIf="selectedLocation =='Wauchula'" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3537.647070659021!2d-81.81309794985033!3d27.542421739244233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88dce6f75ff24e6b%3A0x29b5470c1f597978!2sEckerds+Pharmacy+%23101!5e0!3m2!1sen!2sin!4v1553683956822" frameborder="0" style="border:0" allowfullscreen></iframe>
 				
 				<iframe *ngIf="selectedLocation =='Palmetto'" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3538.350726583121!2d-82.55654354985079!3d27.520560940199477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c33d5b87c05c7b%3A0xd5bdaae901b48607!2sECKERDS+PHARMACY+%23102!5e0!3m2!1sen!2sin!4v1553685242737" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -22,13 +22,13 @@
 				<iframe *ngIf="selectedLocation=='Lake Jackson'" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3488.181609078348!2d-95.45470224981612!3d29.041209172131268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864043a77723bfa9%3A0x8e7e3cdc671449ae!2sEckerds+Pharmacy!5e0!3m2!1sen!2sin!4v1553685939468" frameborder="0" style="border:0" allowfullscreen></iframe>
 
 				<iframe *ngIf="selectedLocation=='West Bradenton'" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.1651767348185!2d-82.61538294985135!3d27.495238041305235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c3170288a1e75d%3A0xece337725862f944!2sEckerds+Pharmacy!5e0!3m2!1sen!2sin!4v1553686020259" frameborder="0" allowfullscreen></iframe>
-			</div>
+			</div> -->
 		</div>
 		<div *ngIf="!selectedLocation">
 			<h3></h3>
 		</div>
 		<div *ngIf="selectedLocation">
-			<h4 style="margin-top: 10px; font-weight: bolder;">Results for:- {{selectedLocation}}</h4>
+			<h4 style="margin-top: 30px; font-weight: bolder;">Results for:- {{selectedLocation}}</h4>
 
 			<div class="row">
 				<div class="col-md-12">
@@ -108,7 +108,7 @@
 							<div class="table-responsive">
 								<table class="table">
 									<thead class=" text-primary">
-										<th style="display: none;"  >
+										<th style="display: none;">
 											Id
 										</th>
 										<th>

@@ -23,6 +23,7 @@ import { ShowDetailPriceComponent } from './show-detail-price/show-detail-price.
 import {NgxPaginationModule} from 'ngx-pagination';
 import Swal from 'sweetalert2';
 import { ChartistModule } from 'ng-chartist';
+import { AddLocationComponent } from './add-location/add-location.component';
 
 
 
@@ -40,6 +41,7 @@ import { ChartistModule } from 'ng-chartist';
   ShowDetailTransferComponent,
   ShowDetailRefillComponent,
   ShowDetailPriceComponent,
+  AddLocationComponent,
 
   ],
   imports: [

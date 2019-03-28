@@ -3,9 +3,10 @@ import {UserRefill} from '../refill-prescription/refillPrescription';
 import {RefillService} from '../refill.service';
 import {UserTransferPrescription} from '../transfer-prescription/transferPrescription';
 import {TransferService} from '../transfer.service';
-import {PriceService} from '../price.service';
+import {PriceService} from '../price.service';	
 import {UserPriceCheck} from '../price-check/priceCheck';
 import {Chart} from 'chart.js';
+import { Observable, interval, Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-dashboard',
@@ -13,7 +14,7 @@ import {Chart} from 'chart.js';
 	styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+	private updateSubscription: Subscription;
 	usersTransferPrescription :  UserTransferPrescription[];
 	usersRefill :  UserRefill[] = [];
 	usersPriceCheck :  UserPriceCheck[];
@@ -58,6 +59,18 @@ export class DashboardComponent implements OnInit {
 		this.getPriceListPublished();
 		this.countDateRecords();
 		this.countLocationRecords();
+
+		this.updateSubscription = interval(10000).subscribe(
+			(val) => {
+				this.getTransferList(); 
+				this.getRefillList();
+				this.getPriceCheck();
+				this.getTransferListPublished();
+				this.getPriceListPublished();
+				this.getRefillListPublished();
+				this.countDateRecords();
+				this.countLocationRecords();
+			});
 	}
 
 	// chart function #################
@@ -132,7 +145,7 @@ export class DashboardComponent implements OnInit {
 		});
 	}
 
-	
+
 
 	// all records chart ##################
 	totalRecordsChart(){

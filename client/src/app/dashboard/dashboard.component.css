@@ -7,6 +7,7 @@
      text-align: left; 
 }
 
-agm-map{
-	height: 300px;
+iframe{
+	height:200px;
+	width:100%;
 }
