@@ -1,0 +1,15 @@
+p{
+	margin: 0;
+}
+
+.upperDiv #headinMain{
+	font-weight: bolder;
+}
+
+.card-body{
+	text-align: center;
+}
+
+.lowerDiv{
+	margin-top: 25px;
+}

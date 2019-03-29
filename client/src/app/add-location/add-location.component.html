@@ -10,8 +10,8 @@
 					<h4 class="modal-title">Add Location</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
-				<div class="modal-body">
-					<form ngNativeValidate>
+				<form ngNativeValidate (ngSubmit)="addLocation(newLocation)" #form="ngForm">
+					<div class="modal-body">
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
@@ -103,13 +103,38 @@
 									<input type="text" class="form-control" name="pincode" [(ngModel)]="newLocation.pincode" id="pincode" required="required">
 								</div>
 							</div>
-							<button type="button" class="btn btn-primary" (click)="addLocation()">Add</button>
 						</div>
-					</form>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Add</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4" *ngFor="let location of allLocation">
+			<div class="card">
+				<div class="card-header card-header-success">
+					<h4 class="card-title"><i class="fas fa-briefcase-medical"> </i> {{location.city}}</h4>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" (click)="addLocation()" data-dismiss="modal">Add</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				<div class="card-body">
+					<div class="upperDiv">
+						<p style="display: none;">{{location.location_id}}</p>
+						<p id="headinMain">{{location.pharmacyName}}</p>
+						<p>{{location.addressOne}}</p>
+						<p *ngIf="location.addressTwo">{{location.addressOne}}</p>
+						<p>{{location.city}} {{location.state}} {{location.pincode}} </p>	
+					</div>
+
+					<div class="lowerDiv">
+						<p><i class="fa fa-phone"></i>  Phone : {{location.phone}} </p>
+						<p><i class="fa fa-fax"></i>  Fax : {{location.fax}} </p>
+						<p *ngIf="location.tollFreeNumber"><i class="fa fa-mobile"></i>  Toll Free : {{location.tollFreeNumber}} </p>
+						<p><i class="fa fa-envelope"></i>  Email: {{location.email}} </p>
+					</div>
 				</div>
 			</div>
 		</div>
