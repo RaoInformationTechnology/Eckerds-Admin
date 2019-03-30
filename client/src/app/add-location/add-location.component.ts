@@ -19,12 +19,7 @@ export class AddLocationComponent implements OnInit {
   constructor(private router: Router, private priceService: PriceService) { }
 
   ngOnInit() {
-    this.allRecords();
-
-    this.updateSubscription = interval(1000*1000).subscribe(
-      (val) => {
-        this.allRecords();
-      });
+    this.allLocations();
   }
 
   newLocation = new NewLocation();
@@ -45,7 +40,7 @@ export class AddLocationComponent implements OnInit {
     this.router.navigate(['/addLocation']);
   }
 
-  allRecords(){
+  allLocations(){
     this.priceService.newLocation().subscribe(
       (res: AllLocation[]) => {
         this.allLocation = res;

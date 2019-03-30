@@ -19,15 +19,12 @@ export class FilterByLocationComponent implements OnInit {
 	usersTransferRequest :  UserTransferPrescription[] = [];
 	usersRefillRequest :  UserRefill[] = [];
 	error = '';
-	// totalLocation =  [{location: 'Wauchula'},{location: 'Palmetto'},{location: 'Bradenton'},{location: 'Apollo Beach'},
-	// {location: 'New Port Beach'},{location: 'New Port Richey'},{location: 'Lake Jackson'},{location: 'West Bradenton'}];
-	totalLocation =  [{location: 'Wauchula'},{location: 'Palmetto'},{location: 'Bradenton'},{location: 'Apollo Beach'},
-	{location: 'New Port Richey'},{location: 'Lake Jackson'},{location: 'West Bradenton'}];
+	totalLocation: any = []; 
 
 	constructor(private priceService: PriceService,  private router: Router, private transferService: TransferService, private refillService: RefillService) { }
 
 	ngOnInit(){
-		
+		this.allLocations();
 	}
 
 	selectedLocation: string = '';
@@ -48,4 +45,15 @@ export class FilterByLocationComponent implements OnInit {
 				this.usersRefillRequest = res;
 			});
 	}
+
+	allLocations(){
+			this.priceService.newLocation().subscribe(
+				(res) => {
+
+					for(var i = 0; i < res.length; i++) {
+						var obj: any  = res[i];
+						this.totalLocation.push(obj.city);
+					}
+					console.log(this.totalLocation);				})
+		}
 }

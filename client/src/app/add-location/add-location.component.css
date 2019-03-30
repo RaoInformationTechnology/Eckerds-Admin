@@ -13,3 +13,11 @@ p{
 .lowerDiv{
 	margin-top: 25px;
 }
+
+.card{
+	min-height: 279px;
+}
+
+.btn.btn-danger {
+    margin-left: 17px;
+}

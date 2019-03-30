@@ -5,7 +5,7 @@
 				<h4>Please Select Location: </h4>
 				<select (change)="selectChangeHandler($event)" class="custom-select" ng-model="selectedLocation">
 					<option value="">Select Location</option>
-					<option *ngFor="let new of totalLocation">{{new.location}}</option>
+					<option *ngFor="let new of totalLocation">{{new}}</option>
 				</select>
 			</div>
 			<!-- <div class="col-md-6 map">
