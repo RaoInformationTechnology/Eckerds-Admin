@@ -24,6 +24,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import Swal from 'sweetalert2';
 import { ChartistModule } from 'ng-chartist';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { EditLocationComponent } from './edit-location/edit-location.component';
 
 
 
@@ -42,6 +43,7 @@ import { AddLocationComponent } from './add-location/add-location.component';
   ShowDetailRefillComponent,
   ShowDetailPriceComponent,
   AddLocationComponent,
+  EditLocationComponent,
 
   ],
   imports: [

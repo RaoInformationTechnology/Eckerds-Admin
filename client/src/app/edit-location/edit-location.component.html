@@ -1,0 +1,104 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3">
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header card-header-primary">
+					<h4 class="card-title">{{model.city}}</h4>
+				</div>
+				<div class="card-body">
+					<form (submit)="updateLocation()">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="bmd-label-floating" for="pharmacyName">Pharmacy Name</label>
+									<input type="text" class="form-control" name="pharmacyName" [(ngModel)]="model.pharmacyName" value="{{model.pharmacyName}}"  id="pharmacyName">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="bmd-label-floating" for="phone">Cell Phone No.</label>
+									<input type="text" class="form-control" name="phone" [(ngModel)]="model.phone" value="{{model.phone}}" id="phone">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="bmd-label-floating" for="fax">Fax No.</label>
+									<input type="text" class="form-control" name="fax" [(ngModel)]="model.fax" value="{{model.fax}}"  id="fax">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="bmd-label-floating" for="tollFreeNumber">Toll Free No.</label>
+									<input type="text" class="form-control" name="tollFreeNumber" [(ngModel)]="model.tollFreeNumber" value="{{model.tollFreeNumber}}" id="tollFreeNumber">
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="bmd-label-floating" for="email">Email</label>
+									<input type="email" class="form-control" [(ngModel)]="model.email" name="email" value="{{model.email}}"  id="email">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="bmd-label-floating" for="addressOne">Address Line 1</label>
+									<input type="text" class="form-control"  [(ngModel)]="model.addressOne" name="addressOne" value="{{model.addressOne}}"  id="addressOne">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="bmd-label-floating" for="addressOne">Address Line 2</label>
+									<input type="text" class="form-control" [(ngModel)]="model.addressTwo" name="addressTwo" value="{{model.addressTwo}}"  id="addressTwo">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="bmd-label-floating" for="city">City</label>
+									<input type="text" class="form-control" [(ngModel)]="model.city" name="city" value="{{model.city}}"  id="city">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="bmd-label-floating" for="state">State</label>
+									<input type="text" class="form-control" [(ngModel)]="model.state" name="state" value="{{model.state}}" id="state">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="bmd-label-floating" for="pincode">Pincode</label>
+									<input type="text" class="form-control" [(ngModel)]="model.pincode" name="pincode" value="{{model.pincode}}" id="pincode">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<button type="submit"  class="btn btn-primary">Update</button>
+							</div>
+							<div class="col-md-3">
+								<button type="button"  class="btn btn-primary" (click)="goBack()">Cancel</button>
+							</div>
+						</div>
+
+						<div class="clearfix"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+		</div>
+	</div>
+</div>

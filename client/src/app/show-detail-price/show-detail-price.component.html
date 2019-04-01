@@ -78,7 +78,8 @@
 								<label class="myLabel">Status:</label>
 								<div class="material-switch" *ngIf="price.isPublish ==0">
 									<input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox" (change)="status(price.pc_id, price.isPublish)"/>
-									<label for="someSwitchOptionPrimary" class="label-primary"></label>								</div>
+									<label for="someSwitchOptionPrimary" class="label-primary"></label>					
+								</div>
 
 								<div class="material-switch" *ngIf="price.isPublish ==1">
 									<input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox" (change)="status(price.pc_id, price.isPublish)" checked="checked" />

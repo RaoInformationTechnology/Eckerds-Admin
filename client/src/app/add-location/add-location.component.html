@@ -1,8 +1,14 @@
 <div class="container-fluid">
-
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-		Add Location
-	</button>
+	<div class="row">
+		<div class="col-md-5">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+				Add Location
+			</button>
+		</div>
+<!-- 		<div class="col-md-3">
+			<p>Total Locations : {{noOfLocation}}</p>
+		</div> -->
+	</div>
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -118,10 +124,24 @@
 		<div class="col-md-4" *ngFor="let location of allLocation">
 			<div class="card">
 				<div class="card-header card-header-success" *ngIf="location.location_id%2==0">
-					<h4 class="card-title"><i class="fas fa-briefcase-medical"> </i> {{location.city}}</h4>
+					<div class="row">
+						<div class="col-md-9">
+							<h4 class="card-title"><i class="fas fa-briefcase-medical"> </i> {{location.city}}</h4>
+						</div>
+						<div class="col-md-3 deleteDiv">
+							<button><a id="deleteLink" class="pull-right" (click)="deleteLocation(location.location_id)"><h4>Delete</h4></a></button>
+						</div>
+					</div>
 				</div>
 				<div class="card-header card-header-warning" *ngIf="location.location_id%2==1">
-					<h4 class="card-title"><i class="fas fa-briefcase-medical"> </i> {{location.city}}</h4>
+					<div class="row">
+						<div class="col-md-9">
+							<h4 class="card-title"><i class="fas fa-briefcase-medical"> </i> {{location.city}}</h4>
+						</div>
+						<div class="col-md-3 deleteDiv">
+							<button><a id="deleteLink" class="pull-right" (click)="deleteLocation(location.location_id)"><h4>Delete</h4></a></button>
+						</div>
+					</div>
 				</div>
 				<div class="card-body">
 					<div class="upperDiv">
@@ -137,9 +157,13 @@
 						<p><i class="fa fa-fax"></i>  Fax : {{location.fax}} </p>
 						<p *ngIf="location.tollFreeNumber"><i class="fa fa-mobile"></i>  Toll Free : {{location.tollFreeNumber}} </p>
 						<p><i class="fa fa-envelope"></i>  Email: {{location.email}} </p>
+						<button id="editLink" routerLink="/editLocation/{{location.location_id}}">Edit >>></button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- <div align="Center"> 
+		<pagination-controls (pageChange)="p=$event"></pagination-controls>
+	</div> -->
 </div>

@@ -12,6 +12,7 @@ import {ShowDetailPriceComponent} from './show-detail-price/show-detail-price.co
 import {ShowDetailTransferComponent} from './show-detail-transfer/show-detail-transfer.component';
 import {ShowDetailRefillComponent} from './show-detail-refill/show-detail-refill.component';
 import {AddLocationComponent} from './add-location/add-location.component';
+import {EditLocationComponent} from './edit-location/edit-location.component';
 const routes: Routes = [
 {
 	path: '',
@@ -72,6 +73,11 @@ const routes: Routes = [
 	component: AddLocationComponent,
 	canActivate: [AuthGuard]
 },
+{
+	path: 'editLocation/:id',
+	component: EditLocationComponent,
+	canActivate: [AuthGuard]
+}
 
 ];
 

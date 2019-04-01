@@ -20,7 +20,7 @@ if($result = mysqli_query($con,$sql))
     $users[$cr]['addressTwo']    = $row['addressTwo'];
     $users[$cr]['city']    = $row['city'];
     $users[$cr]['state']    = $row['state'];
-    $users[$cr]['pincode']    = $row['pinCode'];
+    $users[$cr]['pincode']    = $row['pincode'];
     $cr++;
   }
   echo json_encode(['data'=>$users]);

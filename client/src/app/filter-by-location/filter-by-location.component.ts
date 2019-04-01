@@ -6,6 +6,7 @@ import {PriceService} from '../price.service';
 import {TransferService} from '../transfer.service';
 import {RefillService} from '../refill.service';
 import {Router, Params} from '@angular/router';
+import {LocationService} from '../location.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class FilterByLocationComponent implements OnInit {
 	error = '';
 	totalLocation: any = []; 
 
-	constructor(private priceService: PriceService,  private router: Router, private transferService: TransferService, private refillService: RefillService) { }
+	constructor(private locationService: LocationService, private priceService: PriceService,  private router: Router, private transferService: TransferService, private refillService: RefillService) { }
 
 	ngOnInit(){
 		this.allLocations();
@@ -47,7 +48,7 @@ export class FilterByLocationComponent implements OnInit {
 	}
 
 	allLocations(){
-			this.priceService.newLocation().subscribe(
+			this.locationService.newLocation().subscribe(
 				(res) => {
 
 					for(var i = 0; i < res.length; i++) {

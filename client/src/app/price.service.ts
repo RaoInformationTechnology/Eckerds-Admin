@@ -5,7 +5,6 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 import {UserPriceCheck} from './price-check/priceCheck';
-import {AllLocation} from './add-location/allLocation';
 import {config} from './config';
 
 
@@ -19,35 +18,18 @@ export class PriceService {
 	}
 
 	users: UserPriceCheck[];
-	allLocation: AllLocation[];
 	datePrice: any;
 	locationPrice: any;
 	res : any;
 
 	constructor(private http: HttpClient) { }
 
-	newLocation(): Observable<AllLocation[]> {
-		return this.http.get(config.baseApiUrl + `getTotalLocation.php`).pipe(
-			map((res) => {
-				// console.log(res);
-				this.allLocation = res['data'];
-				return this.allLocation;
-			}),
-			catchError(this.handleError));
-	}
-
-	addLocation(info){
-		console.log(info);
-		return this.http.post(config.baseApiUrl + `addLocation.php`,info).pipe(
-		map(()=>""));
-	}
-
-	getAll (): Observable<UserPriceCheck[]> {
+	getAll(): Observable<UserPriceCheck[]> {
 		return this.http.get(config.baseApiUrl + `price.php`).pipe(
 			map((res) => {
 				// console.log(res);
 				this.users = res['data'];
-				console.log(this.users);
+				// console.log(this.users);
 				return this.users;
 			}),
 			catchError(this.handleError));
