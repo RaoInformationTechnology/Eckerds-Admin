@@ -6,12 +6,12 @@ This is an admin panel of https://myeckerds.com/#!/home
 
 FRONT END
 
-1)Angular 6
-2)Angular Material Design
-3)Bootstrap
+1)Angular 6 <br>
+2)Angular Material Design <br>
+3)Bootstrap <br>
 
 
 BACK END
-1)PHP
-2)MYSql
+1)PHP <br>
+2)MYSql <br>
 
