@@ -32,8 +32,7 @@ export class PriceCheckComponent implements OnInit {
       },
       (err) => {
         this.error = err;
-      }
-      );
+      });
   }
 
   deletePriceCheckRequest(pc_id){
@@ -41,7 +40,7 @@ export class PriceCheckComponent implements OnInit {
     .deletePriceCheckRequest(pc_id)
     .subscribe(() => {
       this.getPriceCheck();
-    })
+    });
   }
 
   status(pc_id, status){

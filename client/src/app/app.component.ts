@@ -21,8 +21,6 @@ export class AppComponent {
     this.cdRef.detectChanges();
     if(this.loggedInUser){
       this.loggedIn = true;
-
-
     }else{
       this.loggedIn = false;
     }	

@@ -34,7 +34,10 @@ export class AddLocationComponent implements OnInit {
     console.log(newLocation);
     Swal.fire("", "Successfully Added", "success"); 
     $('#myModal').modal('hide');
-    this.allLocations();
+    this.updateSubscription = interval(1000).subscribe(
+      (val) => {
+        this.allLocations();
+      });
   }
 
   allLocations(){

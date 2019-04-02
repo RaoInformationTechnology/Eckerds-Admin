@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
 		this.countLocationRecords();
 		this.allLocations();
 
-		this.updateSubscription = interval(10000).subscribe(
+		this.updateSubscription = interval(1000 * 10).subscribe(
 			(val) => {
 				this.getTransferList(); 
 				this.getRefillList();
