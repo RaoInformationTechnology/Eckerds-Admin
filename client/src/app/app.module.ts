@@ -60,7 +60,6 @@ import { EditLocationComponent } from './edit-location/edit-location.component';
   AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,
-    AngularFireModule.initializeApp(environment.firebase),
   BrowserAnimationsModule,
   ChartistModule,
   ToastrModule.forRoot({

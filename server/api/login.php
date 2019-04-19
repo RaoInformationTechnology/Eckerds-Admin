@@ -2,7 +2,7 @@
 $data = json_decode(file_get_contents("php://input"));
 require 'connect.php';
 
-$query = "SELECT * FROM `users` WHERE email='$data->email' and password='$data->password'";
+$query = "SELECT * FROM `admin` WHERE email='$data->email' and password='$data->password'";
 
 $result = mysqli_query($con, $query) or die(mysqli_error($con));
 $count = mysqli_num_rows($result);

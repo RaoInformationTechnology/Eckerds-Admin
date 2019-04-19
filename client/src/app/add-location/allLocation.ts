@@ -9,4 +9,5 @@ export class NewLocation {
 	fax: any;
 	email: any;
 	tollfree: any;
+	tollFreeNumber: any;
 }	

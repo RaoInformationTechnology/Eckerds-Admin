@@ -9,6 +9,7 @@ export class AllLocation {
 		phone: any,
 		fax: any,
 		email: any,
-		tollfree: any){
+		tollfree: any,
+		tollFreeNumber: any,){
 	}
 }

@@ -6,5 +6,6 @@ export class UserPriceCheck {
 		medicines: string,
 		note: string,
 		isPublish: boolean,
+		location: string,
 		) {}
 }
