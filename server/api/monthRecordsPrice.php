@@ -1,7 +1,6 @@
 <?php
 
 require 'connect.php';
-
 // array **********
 $records = array();
 array_unshift($records,"");

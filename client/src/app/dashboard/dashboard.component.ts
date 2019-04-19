@@ -46,9 +46,9 @@ export class DashboardComponent implements OnInit {
 	months =  ['Jan','Feb','Mar','Apr',
 	'May','June','July','Aug', 'Sep','Oct', 'Nov','Dec'];
 	totalRequest: any = [];
-	constructor(private locationService: LocationService, private refillService: RefillService, private transferService: TransferService,  private priceService: PriceService) { 
+	constructor(  private locationService: LocationService, private refillService: RefillService, private transferService: TransferService,  private priceService: PriceService) { 
 	}
-
+	message: any;
 	ngOnInit() {
 		this.getTransferList();
 		this.getRefillList();
@@ -60,17 +60,17 @@ export class DashboardComponent implements OnInit {
 		this.countLocationRecords();
 		this.allLocations();
 
-		this.updateSubscription = interval(1000 * 10).subscribe(
-			(val) => {
-				this.getTransferList(); 
-				this.getRefillList();
-				this.getPriceCheck();
-				this.getTransferListPublished();
-				this.getPriceListPublished();
-				this.getRefillListPublished();
-				this.countDateRecords();
-				this.countLocationRecords();
-			});
+		// this.updateSubscription = interval(1000 * 10).subscribe(
+		// 	(val) => {
+		// 		this.getTransferList(); 
+		// 		this.getRefillList();
+		// 		this.getPriceCheck();
+		// 		this.getTransferListPublished();
+		// 		this.getPriceListPublished();
+		// 		this.getRefillListPublished();
+		// 		this.countDateRecords();
+		// 		this.countLocationRecords();
+		// 	});
 	}
 
 	// chart function #################
@@ -354,6 +354,7 @@ export class DashboardComponent implements OnInit {
 		this.priceService.getRecordsDate().subscribe(
 			(res)=>{
 				this.dateRecordsPrice = res;
+				console.log(this.dateRecordsPrice);
 				this.dateRecordsPrice = Object.values(this.dateRecordsPrice);
 				this.allRequestTypesChart();
 				var array = [this.dateRecordsPrice, this.dateRecordsRefill, this.dateRecordsTaransfer];

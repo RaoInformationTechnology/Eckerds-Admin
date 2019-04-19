@@ -29,6 +29,7 @@ export class PriceCheckComponent implements OnInit {
   	this.priceService.getAll().subscribe(
       (res: UserPriceCheck[]) => {
         this.usersPriceCheck = res;
+        console.log(this.usersPriceCheck);
       },
       (err) => {
         this.error = err;

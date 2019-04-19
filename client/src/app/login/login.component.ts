@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../login.service';
 import {Router} from '@angular/router';
 
+
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.component.html',
@@ -12,8 +13,10 @@ export class LoginComponent implements OnInit {
 	constructor(private loginService: LoginService, private router: Router) { }
 
 	ngOnInit() {
+
 	}
 	msg: string = null;
+	message: any;
 	errmsg: string = null;
 	loading = false;
 
@@ -27,7 +30,8 @@ export class LoginComponent implements OnInit {
 		this.loginService.authorize(detail).subscribe(res=>{
 			localStorage.setItem("users",JSON.stringify(res));
 			this.msg = 'Logged in successfully! ';
-				this.router.navigate(['dashboard']);
+			this.router.navigate(['dashboard']);
+
 		},err=>{
 			console.log("error",err);
 			this.errmsg = 'Incorrect info!';

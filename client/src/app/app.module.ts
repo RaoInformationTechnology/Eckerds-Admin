@@ -4,6 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +30,6 @@ import Swal from 'sweetalert2';
 import { ChartistModule } from 'ng-chartist';
 import { AddLocationComponent } from './add-location/add-location.component';
 import { EditLocationComponent } from './edit-location/edit-location.component';
-
 
 
 
@@ -53,6 +57,10 @@ import { EditLocationComponent } from './edit-location/edit-location.component';
   FormsModule,
   FilterPipeModule,
   NgxPaginationModule,
+  AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase),
   BrowserAnimationsModule,
   ChartistModule,
   ToastrModule.forRoot({
